@@ -1,0 +1,1703 @@
+Microsoft Windows [Version 10.0.19045.6396]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\8.0\bin\mongosh-2.5.8-win32-x64\bin>mongosh
+Current Mongosh Log ID: 68e97c008e0ad9ba59cebea3
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8
+Using MongoDB:          8.0.15
+Using Mongosh:          2.5.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-10-11T03:03:55.440+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+Enterprise test> show dbs
+LearnBay_MongoDB  112.00 KiB
+admin              40.00 KiB
+config             60.00 KiB
+local              72.00 KiB
+Enterprise test> use LearnBay_MongoDB
+switched to db LearnBay_MongoDB
+Enterprise LearnBay_MongoDB> show collections
+demo
+test
+Enterprise LearnBay_MongoDB> db.test.find()
+[
+  {
+    _id: ObjectId('68e84417cc7c95df7fcebea4'),
+    Name: 'Bhaskar Bijoy Kashyap',
+    Company: 'Apple',
+    Country: 'United States of America',
+    Salary: 200000
+  }
+]
+Enterprise LearnBay_MongoDB> db.test.deleteOne()
+MongoshInvalidInputError: [COMMON-10001] Missing required argument at position 0 (Collection.deleteOne)
+Enterprise LearnBay_MongoDB> db.test.deleteOne({"Name" : "Bhaskar Bijoy Kashyap"})
+{ acknowledged: true, deletedCount: 1 }
+Enterprise LearnBay_MongoDB> use demo
+switched to db demo
+Enterprise demo> db.demo.find()
+
+Enterprise demo> db.demo.find()
+
+Enterprise demo> db.test.find()
+
+Enterprise demo> db.test.drop()
+true
+Enterprise demo> db.demo.drop()
+true
+Enterprise demo> show collections
+
+Enterprise demo> db.createCollection("Friends", (capped : true, max : 25))
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:39)
+
+> 1 | db.createCollection("Friends", (capped : true, max : 25))
+    |                                        ^
+  2 |
+
+Enterprise demo> db.createCollection("Friends", (capped : true, max : 25, size : 250000))
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:39)
+
+> 1 | db.createCollection("Friends", (capped : true, max : 25, size : 250000))
+    |                                        ^
+  2 |
+
+Enterprise demo> db.createCollection("Friends", {capped : true, max : 25, size : 250000})
+{ ok: 1 }
+Enterprise demo> show collections
+Friends
+Enterprise demo> db.Friends.insertOne({"FID" : "A0001", "Name" : "Pulak Pallab Kashyap", "City" : "GNOIDA", "DOJ" "2026-01-15", "Dept" : "IT", "Desi" : "Data Scientist", "Salary" : 250000})
+Uncaught:
+SyntaxError: Unexpected token (1:97)
+
+> 1 | db.Friends.insertOne({"FID" : "A0001", "Name" : "Pulak Pallab Kashyap", "City" : "GNOIDA", "DOJ" "2026-01-15", "Dept" : "IT", "Desi" : "Data Scientist", "Salary" : 250000})
+    |                                                                                                  ^
+  2 |
+
+Enterprise demo> db.Friends.insertOne({"FID" : "A0001", "Name" : "Pulak Pallab Kashyap", "City" : "GNOIDA", "DOJ" : "2026-01-15", "Dept" : "IT", "Desi" : "Data Scientist", "Salary" : 250000})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68e97fe28e0ad9ba59cebea4')
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "B0002", "Name" : "Wasima Shahreen", "City" : "Guwahati", "DOJ" : "2025-10-12", "Dept" : "HR", "Desi" : "Secretary", "Salary" : 200000}, {"FID" : "C0003", "Name" : "Hrishikesh Basumatary", "City" : "Guwahati", "DOJ" : "2026-07-20", "Dept" : "HR", "Desi" : "Management", "Salary" : 150000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e981c28e0ad9ba59cebea5'),
+    '1': ObjectId('68e981c28e0ad9ba59cebea6')
+  }
+}
+Enterprise demo> db.Friends.insertOne({"FID" : "C0004", "Name" : "Manash Goswami", "City" : "Bengaluru", "DOJ" : "2026-02-07", "Dept" : "IT", "Desi" : "Manager", "Salary" : 150000})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68e9829c8e0ad9ba59cebea7')
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "C0005", "Name" : "Bhaskar Bijoy Kashyap", "City" : "Arizona", "DOJ" : "2025-10-22", "Dept" : "IT", "Desi" : "Data Analyst", "Salary" : 200000}, {"FID" : "D0006", "Name" : "Jyotishman Buaruah", "City" : "Gurugram", "DOJ" : "2026-03-11", "Dept" : "IT", "Desi" : "Associate", "Salary" : 150000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e983c48e0ad9ba59cebea8'),
+    '1': ObjectId('68e983c48e0ad9ba59cebea9')
+  }
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "D0007", "Name" : "Angshuman Thakuria", "City" : "Guwahati", "DOJ" : "2025-12-22", "Dept" : "IT", "Desi" : "Associate", "Salary" : 150000}, {"FID" : "D0008", "Name" : "Rohan Ahmed Barua", "City" : "Gurugram", "DOJ" : "2026-04-04", "Dept" : "HR", "Desi" : "Associate", "Salary" : 150000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    '1': ObjectId('68e9846a8e0ad9ba59cebeab')
+  }
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "D0009", "Name" : "Juri Lahkar", "City" : "Dhubri", "DOJ" : "2026-02-01", "Dept" : "IT", "Desi" : "Associate", "Salary" : 100000}, {"FID" : "D0010", "Name" : "Kabyashree Bharadwaj", "City" : "Sivasagar", "DOJ" : "2026-05-28", "Dept" : "HR", "Desi" : "Associate", "Salary" : 100000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e985328e0ad9ba59cebeac'),
+    '1': ObjectId('68e985328e0ad9ba59cebead')
+  }
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Management',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Buaruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.updateOne({"FID" : "B0002"}, {$set:{"Salary" : 350000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.updateOne({$and: [{"Dept" : "IT"}, {"City" : "Gurugram"}]}, {$set: {"Name" : "Jyotishman Baruah", "Dept" : "HR"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Management',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.updateOne({$or: [{"Desi" : "Management"}, {"Salary" : 150000}]}, {$set: {"Desi" : "Manager"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.find({"Dept" : "HR"})
+[
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.find({$and: [{"Dept" : "HR"}, {"Desi" : "Associate"}]})
+[
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.updateMany({"Desi" : "Associate"}, {$set: {"Desi" : "Senior Associate"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.updateMany({$set: {"Company" : "PBW Association"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:60)
+
+> 1 | db.Friends.updateMany({$set: {"Company" : "PBW Association"})
+    |                                                             ^
+  2 |
+
+Enterprise demo> db.Friends.updateMany({$set: {"Company" : "PBW Association"}})
+MongoInvalidArgumentError: Update document requires atomic operators
+Enterprise demo> db.Friends.updateMany({},{$set: {"Company" : "PBW Association"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 10,
+  modifiedCount: 10,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 100000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 100000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.deleteMany({$and: [{"Desi" : "Senior Associate"}, {"Salary" : 100000}])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:81)
+
+> 1 | db.Friends.deleteMany({$and: [{"Desi" : "Senior Associate"}, {"Salary" : 100000}])
+    |                                                                                  ^
+  2 |
+
+Enterprise demo> db.Friends.deleteMany({$and: [{"Desi" : "Senior Associate"}, {"Salary" : 100000}]})
+{ acknowledged: true, deletedCount: 2 }
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.save({"FID" : "D0009", "Name" : "Kaushik Goswami", "City" : "Lakhimpur", "DOJ" : "2025-11-25", "Dept" : "HR", "Desi" : "Manager", "Salary" : 150000, "Company" : "PBW Association"})
+TypeError: db.Friends.save is not a function
+Enterprise demo> db.Friends.Find({$and: [{"Dept" : "HR"}, {"Desi" : "Senior Associate"}]})
+TypeError: db.Friends.Find is not a function
+Enterprise demo> db.Friends.find({$and: [{"Dept" : "HR"}, {"Desi" : "Senior Associate"}]})
+[
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.find({$and: [{"Dept" : {$not: {$eq: "HR"}}}, {"Desi" : {$not: {$eq: "Senior Associate"}}}])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:101)
+
+> 1 | db.Friends.find({$and: [{"Dept" : {$not: {$eq: "HR"}}}, {"Desi" : {$not: {$eq: "Senior Associate"}}}])
+    |                                                                                                      ^
+  2 |
+
+Enterprise demo> db.Friends.find({$and: [{"Dept" : {$not: {$eq: "HR"}}}, {"Desi" : {$not: {$eq: "Senior Associate"}}}]})
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db,Friends.find({$and: [{"Dept" : "IT", "Desi" : {$neq: "Senior Associate"}}, {"Salary" : {$lte: 200000}}])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:106)
+
+> 1 | db,Friends.find({$and: [{"Dept" : "IT", "Desi" : {$neq: "Senior Associate"}}, {"Salary" : {$lte: 200000}}])
+    |                                                                                                           ^
+  2 |
+
+Enterprise demo> db,Friends.find({$and: [{"Dept" : "IT"}, {"Desi" : {$neq: "Senior Associate"}}, {"Salary" : {$lte: 200000}}])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:108)
+
+> 1 | db,Friends.find({$and: [{"Dept" : "IT"}, {"Desi" : {$neq: "Senior Associate"}}, {"Salary" : {$lte: 200000}}])
+    |                                                                                                             ^
+  2 |
+
+Enterprise demo> db,Friends.find({$and: [{"Dept" : "IT"}, {"Desi" : {$neq: "Senior Associate"}}, {"Salary" : {$lte: 200000}}]})
+ReferenceError: Friends is not defined
+Enterprise demo> db.Friends.find({$and: [{"Dept" : "IT"}, {"Desi" : {$neq: "Senior Associate"}}, {"Salary" : {$lte: 200000}}]})
+MongoServerError[BadValue]: unknown operator: $neq
+Enterprise demo> db.Friends.find({$and: [{"Dept" : "IT"}, {"Desi" : {$ne: "Senior Associate"}}, {"Salary" : {$lte: 200000}}]})
+[
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.find({$and: [{"Dept" : "IT", "Desi" : {$ne: "Senior Associate"},"Salary" : {$lte: 200000}}]})
+[
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.find({"Dept" : "IT", "Desi" : {$ne: "Senior Associate"},"Salary" : {$lte: 200000}})
+[
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.find({$and: [{"Dept" : {$in: ["IT", "HR"]}, "Desi" : {$ne: "Senior Associate"}}]})
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.find({"Dept" : {$in: ["IT", "HR"]}, "Desi" : {$ne: "Senior Associate"}})
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Friends.find({$and: [{$or: [{"Dept" : "IT"}, {"Salary" : {$lte: 250000}}]}, {$or: {"Desi" : "Data Scientist"}, {"City" {$eq: "Arizona"}}}]})
+Uncaught:
+SyntaxError: Unexpected token (1:114)
+
+> 1 | db.Friends.find({$and: [{$or: [{"Dept" : "IT"}, {"Salary" : {$lte: 250000}}]}, {$or: {"Desi" : "Data Scientist"}, {"City" {$eq: "Arizona"}}}]})
+    |                                                                                                                   ^
+  2 |
+
+Enterprise demo> db.Friends.find({$and: [{$or: [{"Dept" : "IT"}, {"Salary" : {$lte: 250000}}]}, {$or: {"Desi" : "Data Scientist"}, {"City" : {$eq: "Arizona"}}}]})
+Uncaught:
+SyntaxError: Unexpected token (1:114)
+
+> 1 | db.Friends.find({$and: [{$or: [{"Dept" : "IT"}, {"Salary" : {$lte: 250000}}]}, {$or: {"Desi" : "Data Scientist"}, {"City" : {$eq: "Arizona"}}}]})
+    |                                                                                                                   ^
+  2 |
+
+Enterprise demo> db.Friends.find({$and: [{$or: [{"Dept" : "IT"}, {"Salary" : {$lte: 250000}}]}, {$or: [{"Desi" : "Data Scientist"}, {"City" : {$eq: "Arizona"}}]}]})
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> use demo
+already on db demo
+Enterprise demo> show collections
+Friends
+Enterprise demo> shows dbs
+Uncaught:
+SyntaxError: Missing semicolon. (1:5)
+sal
+> 1 | shows dbs
+    |      ^
+  2 |
+
+Enterprise demo> show dbs
+LearnBay_MongoDB   96.00 KiB
+admin              40.00 KiB
+config            108.00 KiB
+demo              164.00 KiB
+local              72.00 KiB
+Enterprise demo> show collections
+emp
+Friends
+sal
+Enterprise demo> use LearnBay_MongoDB
+switched to db LearnBay_MongoDB
+Enterprise LearnBay_MongoDB> show collections
+demo
+test
+Enterprise LearnBay_MongoDB> db.demo.find()
+[
+  {
+    _id: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    Company: 'Apple',
+    Salary: 400000,
+    Country: 'Netherlands',
+    Age: 31
+  },
+  {
+    _id: 'B0002',
+    Name: 'Manash Goswami',
+    Company: 'Netflix',
+    Country: 'Netherlands',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e890cbcc7c95df7fcebea6'),
+    Name: 'Bhaskar Bijoy Kashyap',
+    Company: 'Google',
+    Country: 'United States of America',
+    Salary: 300000
+  }
+]
+Enterprise LearnBay_MongoDB> db.test.find()
+
+Enterprise LearnBay_MongoDB> db.dropDatabase
+[Function: dropDatabase] AsyncFunction {
+  apiVersions: [ 1, Infinity ],
+  returnsPromise: true,
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  returnType: { type: 'unknown', attributes: {} },
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  newShellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+Enterprise LearnBay_MongoDB> db.dropDatabase()
+{ ok: 1, dropped: 'LearnBay_MongoDB' }
+Enterprise LearnBay_MongoDB> use demo
+switched to db demo
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+demo    164.00 KiB
+local    72.00 KiB
+Enterprise demo> db.sal.find()
+[
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56bb'),
+    EID: 1001,
+    DEPT: 'OPS',
+    DESI: 'Director',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56bc'),
+    EID: 1003,
+    DEPT: 'ADMIN',
+    DESI: 'SR MANAGER',
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56bd'),
+    EID: 1004,
+    DEPT: 'MIS',
+    DESI: 'Manager',
+    SALARY: 292129
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56be'),
+    EID: 1006,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 96500
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56bf'),
+    EID: 1005,
+    DEPT: 'HR',
+    DESI: 'Associate',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c0'),
+    EID: 1002,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 245000
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c1'),
+    EID: 1007,
+    DEPT: 'HR',
+    DESI: 'MANAGER',
+    SALARY: 157322
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c2'),
+    EID: 1008,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c3'),
+    EID: 1009,
+    DEPT: 'mis',
+    DESI: 'associate',
+    SALARY: 288767
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c4'),
+    EID: 1010,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 134493
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c5'),
+    EID: 1011,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 294149
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c6'),
+    EID: 1012,
+    DEPT: 'HR',
+    DESI: 'SR. ASSOCIATE',
+    SALARY: 314887
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c7'),
+    EID: 1013,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 223155
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c8'),
+    EID: 1014,
+    DEPT: 'MIS',
+    DESI: 'ASSOCIATE',
+    SALARY: 75800
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56c9'),
+    EID: 1015,
+    DEPT: 'OPS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 194335
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56ca'),
+    EID: 1019,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 190460
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56cb'),
+    EID: 1020,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 134915
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56cc'),
+    EID: 1021,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 137567
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56cd'),
+    EID: 1022,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 91280
+  },
+  {
+    _id: ObjectId('68eaa68c409b2b8bdfcc56ce'),
+    EID: 1023,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 177095
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find().count()
+93peError: db.sal.dind is not a function
+Enterprise demo> db.sal.find().count()
+93
+Enterprise demo> db.sal.remove({}, 0)
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 93 }
+Enterprise demo> show collections
+emp
+Friends
+sal
+Enterprise demo> db.sal.find()
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075970'),
+    EID: 1002,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 245000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075971'),
+    EID: 1003,
+    DEPT: 'ADMIN',
+    DESI: 'SR MANAGER',
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075972'),
+    EID: 1001,
+    DEPT: 'OPS',
+    DESI: 'Director',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075973'),
+    EID: 1005,
+    DEPT: 'HR',
+    DESI: 'Associate',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    EID: 1004,
+    DEPT: 'MIS',
+    DESI: 'Manager',
+    SALARY: 292129
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075975'),
+    EID: 1006,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 96500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075976'),
+    EID: 1007,
+    DEPT: 'HR',
+    DESI: 'MANAGER',
+    SALARY: 157322
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075977'),
+    EID: 1011,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 294149
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075978'),
+    EID: 1012,
+    DEPT: 'HR',
+    DESI: 'SR. ASSOCIATE',
+    SALARY: 314887
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075979'),
+    EID: 1008,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597a'),
+    EID: 1013,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 223155
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597b'),
+    EID: 1009,
+    DEPT: 'mis',
+    DESI: 'associate',
+    SALARY: 288767
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597c'),
+    EID: 1015,
+    DEPT: 'OPS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 194335
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597d'),
+    EID: 1010,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 134493
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597e'),
+    EID: 1014,
+    DEPT: 'MIS',
+    DESI: 'ASSOCIATE',
+    SALARY: 75800
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597f'),
+    EID: 1019,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 190460
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075980'),
+    EID: 1020,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 134915
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075981'),
+    EID: 1021,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 137567
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075982'),
+    EID: 1022,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 91280
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075983'),
+    EID: 1023,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 177095
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find().count()
+93
+Enterprise demo>
+
+
+-- IMPORTING FILES TO MONGODB
+
+Microsoft Windows [Version 10.0.19045.6396]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\8.0\bin>mongoimport -d demo -c sal --type csv --file emp_sal.csv --headerline
+2025-10-12T00:18:44.625+0530    connected to: mongodb://localhost/
+2025-10-12T00:18:44.831+0530    93 document(s) imported successfully. 0 document(s) failed to import.
+
+C:\Program Files\MongoDB\Server\8.0\bin>mongoimport -d demo -c emp --type csv --file emp.csv --headerline
+2025-10-12T00:20:15.116+0530    connected to: mongodb://localhost/
+2025-10-12T00:20:15.289+0530    162 document(s) imported successfully. 0 document(s) failed to import.
+
+C:\Program Files\MongoDB\Server\8.0\bin>mongoimport -d demo -c sal --type csv --file emp_sal.csv --headerline --drop
+2025-10-12T01:57:34.005+0530    connected to: mongodb://localhost/
+2025-10-12T01:57:34.006+0530    dropping: demo.sal
+2025-10-12T01:57:34.241+0530    93 document(s) imported successfully. 0 document(s) failed to import.
+
+C:\Program Files\MongoDB\Server\8.0\bin>
