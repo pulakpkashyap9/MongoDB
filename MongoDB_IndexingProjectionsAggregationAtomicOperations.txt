@@ -1,0 +1,2619 @@
+
+Enterprise test> show dbs
+admin    40.00 KiB
+config   60.00 KiB
+demo    164.00 KiB
+local    72.00 KiB
+Enterprise test> use demo
+switched to db demo
+Enterprise demo> show collections
+emp
+Friends
+sal
+Enterprise demo> db.sal.find().count()
+93
+Enterprise demo> db.sal.find({}, {"DEPT" : 1, "DESI" : 1})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075970'),
+    DEPT: 'OPS',
+    DESI: 'VP'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075971'),
+    DEPT: 'ADMIN',
+    DESI: 'SR MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075972'),
+    DEPT: 'OPS',
+    DESI: 'Director'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075973'),
+    DEPT: 'HR',
+    DESI: 'Associate'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    DEPT: 'MIS',
+    DESI: 'Manager'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075975'),
+    DEPT: 'OPS',
+    DESI: 'VP'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075976'),
+    DEPT: 'HR',
+    DESI: 'MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075977'),
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075978'),
+    DEPT: 'HR',
+    DESI: 'SR. ASSOCIATE'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075979'),
+    DEPT: 'OPS',
+    DESI: 'MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597a'),
+    DEPT: 'MIS',
+    DESI: 'MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597b'),
+    DEPT: 'mis',
+    DESI: 'associate'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597c'),
+    DEPT: 'OPS',
+    DESI: 'ASSISTANT MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597d'),
+    DEPT: 'MIS',
+    DESI: 'MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597e'),
+    DEPT: 'MIS',
+    DESI: 'ASSOCIATE'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597f'),
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075980'),
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075981'),
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075982'),
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER'
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075983'),
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE'
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({}, {"DEPT" : 0, "DESI" : 0})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075970'),
+    EID: 1002,
+    SALARY: 245000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075971'),
+    EID: 1003,
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075972'),
+    EID: 1001,
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075973'),
+    EID: 1005,
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    EID: 1004,
+    SALARY: 292129
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075975'),
+    EID: 1006,
+    SALARY: 96500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075976'),
+    EID: 1007,
+    SALARY: 157322
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075977'),
+    EID: 1011,
+    SALARY: 294149
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075978'),
+    EID: 1012,
+    SALARY: 314887
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075979'),
+    EID: 1008,
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597a'),
+    EID: 1013,
+    SALARY: 223155
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597b'),
+    EID: 1009,
+    SALARY: 288767
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597c'),
+    EID: 1015,
+    SALARY: 194335
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597d'),
+    EID: 1010,
+    SALARY: 134493
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597e'),
+    EID: 1014,
+    SALARY: 75800
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597f'),
+    EID: 1019,
+    SALARY: 190460
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075980'),
+    EID: 1020,
+    SALARY: 134915
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075981'),
+    EID: 1021,
+    SALARY: 137567
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075982'),
+    EID: 1022,
+    SALARY: 91280
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075983'),
+    EID: 1023,
+    SALARY: 177095
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).limit(5)
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599d'),
+    EID: 1078,
+    DEPT: 'TEMP',
+    SALARY: 77500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599e'),
+    EID: 1079,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599f'),
+    EID: 1081,
+    DEPT: 'TEMP',
+    SALARY: 520000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a1'),
+    EID: 1085,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a2'),
+    EID: 1086,
+    DEPT: 'TEMP',
+    SALARY: 113000
+  }
+]
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).limit(25)
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599d'),
+    EID: 1078,
+    DEPT: 'TEMP',
+    SALARY: 77500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599e'),
+    EID: 1079,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599f'),
+    EID: 1081,
+    DEPT: 'TEMP',
+    SALARY: 520000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a1'),
+    EID: 1085,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a2'),
+    EID: 1086,
+    DEPT: 'TEMP',
+    SALARY: 113000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a3'),
+    EID: 1088,
+    DEPT: 'TEMP',
+    SALARY: 126597
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a4'),
+    EID: 1090,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a5'),
+    EID: 1091,
+    DEPT: 'TEMP',
+    SALARY: 95000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a6'),
+    EID: 1093,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759aa'),
+    EID: 1092,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ab'),
+    EID: 1096,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ac'),
+    EID: 1097,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ad'),
+    EID: 1102,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ae'),
+    EID: 1104,
+    DEPT: 'TEMP',
+    SALARY: 160000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759af'),
+    EID: 1109,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b0'),
+    EID: 1113,
+    DEPT: 'TEMP',
+    SALARY: 190000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b1'),
+    EID: 1114,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b2'),
+    EID: 1116,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b3'),
+    EID: 1117,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b4'),
+    EID: 1120,
+    DEPT: 'TEMP',
+    SALARY: 105000
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).skip(10)
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ab'),
+    EID: 1096,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ac'),
+    EID: 1097,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ad'),
+    EID: 1102,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ae'),
+    EID: 1104,
+    DEPT: 'TEMP',
+    SALARY: 160000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759af'),
+    EID: 1109,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b0'),
+    EID: 1113,
+    DEPT: 'TEMP',
+    SALARY: 190000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b1'),
+    EID: 1114,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b2'),
+    EID: 1116,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b3'),
+    EID: 1117,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b4'),
+    EID: 1120,
+    DEPT: 'TEMP',
+    SALARY: 105000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b5'),
+    EID: 1121,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b6'),
+    EID: 1123,
+    DEPT: 'TEMP',
+    SALARY: 110990
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b7'),
+    EID: 1128,
+    DEPT: 'TEMP',
+    SALARY: 45000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b8'),
+    EID: 1129,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b9'),
+    EID: 1130,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ba'),
+    EID: 1133,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759bb'),
+    EID: 1106,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759bc'),
+    EID: 1136,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759bd'),
+    EID: 1107,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759be'),
+    EID: 1138,
+    DEPT: 'TEMP',
+    SALARY: 35000
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).limit(10).skip(10)
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ab'),
+    EID: 1096,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ac'),
+    EID: 1097,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ad'),
+    EID: 1102,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ae'),
+    EID: 1104,
+    DEPT: 'TEMP',
+    SALARY: 160000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759af'),
+    EID: 1109,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b0'),
+    EID: 1113,
+    DEPT: 'TEMP',
+    SALARY: 190000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b1'),
+    EID: 1114,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b2'),
+    EID: 1116,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b3'),
+    EID: 1117,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b4'),
+    EID: 1120,
+    DEPT: 'TEMP',
+    SALARY: 105000
+  }
+]
+Enterprise demo> db.sal.find().sort("Salary" : 1)
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:28)
+
+> 1 | db.sal.find().sort("Salary" : 1)
+    |                             ^
+  2 |
+
+Enterprise demo> db.sal.find().sort({"Salary" : 1})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075970'),
+    EID: 1002,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 245000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075971'),
+    EID: 1003,
+    DEPT: 'ADMIN',
+    DESI: 'SR MANAGER',
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075972'),
+    EID: 1001,
+    DEPT: 'OPS',
+    DESI: 'Director',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075973'),
+    EID: 1005,
+    DEPT: 'HR',
+    DESI: 'Associate',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    EID: 1004,
+    DEPT: 'MIS',
+    DESI: 'Manager',
+    SALARY: 292129
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075975'),
+    EID: 1006,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 96500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075976'),
+    EID: 1007,
+    DEPT: 'HR',
+    DESI: 'MANAGER',
+    SALARY: 157322
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075977'),
+    EID: 1011,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 294149
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075978'),
+    EID: 1012,
+    DEPT: 'HR',
+    DESI: 'SR. ASSOCIATE',
+    SALARY: 314887
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075979'),
+    EID: 1008,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597a'),
+    EID: 1013,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 223155
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597b'),
+    EID: 1009,
+    DEPT: 'mis',
+    DESI: 'associate',
+    SALARY: 288767
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597c'),
+    EID: 1015,
+    DEPT: 'OPS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 194335
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597d'),
+    EID: 1010,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 134493
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597e'),
+    EID: 1014,
+    DEPT: 'MIS',
+    DESI: 'ASSOCIATE',
+    SALARY: 75800
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597f'),
+    EID: 1019,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 190460
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075980'),
+    EID: 1020,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 134915
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075981'),
+    EID: 1021,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 137567
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075982'),
+    EID: 1022,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 91280
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075983'),
+    EID: 1023,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 177095
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find().sort({"Salary" : -1})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075970'),
+    EID: 1002,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 245000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075971'),
+    EID: 1003,
+    DEPT: 'ADMIN',
+    DESI: 'SR MANAGER',
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075972'),
+    EID: 1001,
+    DEPT: 'OPS',
+    DESI: 'Director',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075973'),
+    EID: 1005,
+    DEPT: 'HR',
+    DESI: 'Associate',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    EID: 1004,
+    DEPT: 'MIS',
+    DESI: 'Manager',
+    SALARY: 292129
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075975'),
+    EID: 1006,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 96500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075976'),
+    EID: 1007,
+    DEPT: 'HR',
+    DESI: 'MANAGER',
+    SALARY: 157322
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075977'),
+    EID: 1011,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 294149
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075978'),
+    EID: 1012,
+    DEPT: 'HR',
+    DESI: 'SR. ASSOCIATE',
+    SALARY: 314887
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075979'),
+    EID: 1008,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597a'),
+    EID: 1013,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 223155
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597b'),
+    EID: 1009,
+    DEPT: 'mis',
+    DESI: 'associate',
+    SALARY: 288767
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597c'),
+    EID: 1015,
+    DEPT: 'OPS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 194335
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597d'),
+    EID: 1010,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 134493
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597e'),
+    EID: 1014,
+    DEPT: 'MIS',
+    DESI: 'ASSOCIATE',
+    SALARY: 75800
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597f'),
+    EID: 1019,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 190460
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075980'),
+    EID: 1020,
+    DEPT: 'HR',
+    DESI: 'ASSOCIATE',
+    SALARY: 134915
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075981'),
+    EID: 1021,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 137567
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075982'),
+    EID: 1022,
+    DEPT: 'MIS',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 91280
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075983'),
+    EID: 1023,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 177095
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"Salary" : 1}).sort({"Salary" : -1})
+[
+  { _id: ObjectId('68eabdb6349f878e5d07599d') },
+  { _id: ObjectId('68eabdb6349f878e5d07599e') },
+  { _id: ObjectId('68eabdb6349f878e5d07599f') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a1') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a2') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a3') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a4') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a5') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a6') },
+  { _id: ObjectId('68eabdb6349f878e5d0759aa') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ab') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ac') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ad') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ae') },
+  { _id: ObjectId('68eabdb6349f878e5d0759af') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b0') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b1') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b2') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b3') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b4') }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"Salary" : 1})
+[
+  { _id: ObjectId('68eabdb6349f878e5d07599d') },
+  { _id: ObjectId('68eabdb6349f878e5d07599e') },
+  { _id: ObjectId('68eabdb6349f878e5d07599f') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a1') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a2') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a3') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a4') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a5') },
+  { _id: ObjectId('68eabdb6349f878e5d0759a6') },
+  { _id: ObjectId('68eabdb6349f878e5d0759aa') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ab') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ac') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ad') },
+  { _id: ObjectId('68eabdb6349f878e5d0759ae') },
+  { _id: ObjectId('68eabdb6349f878e5d0759af') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b0') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b1') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b2') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b3') },
+  { _id: ObjectId('68eabdb6349f878e5d0759b4') }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).sort("Salary" : 1)
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:59)
+
+> 1 | db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).sort("Salary" : 1)
+    |                                                            ^
+  2 |
+
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).sort({"Salary" : 1})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599d'),
+    EID: 1078,
+    DEPT: 'TEMP',
+    SALARY: 77500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599e'),
+    EID: 1079,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599f'),
+    EID: 1081,
+    DEPT: 'TEMP',
+    SALARY: 520000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a1'),
+    EID: 1085,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a2'),
+    EID: 1086,
+    DEPT: 'TEMP',
+    SALARY: 113000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a3'),
+    EID: 1088,
+    DEPT: 'TEMP',
+    SALARY: 126597
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a4'),
+    EID: 1090,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a5'),
+    EID: 1091,
+    DEPT: 'TEMP',
+    SALARY: 95000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a6'),
+    EID: 1093,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759aa'),
+    EID: 1092,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ab'),
+    EID: 1096,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ac'),
+    EID: 1097,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ad'),
+    EID: 1102,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ae'),
+    EID: 1104,
+    DEPT: 'TEMP',
+    SALARY: 160000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759af'),
+    EID: 1109,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b0'),
+    EID: 1113,
+    DEPT: 'TEMP',
+    SALARY: 190000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b1'),
+    EID: 1114,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b2'),
+    EID: 1116,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b3'),
+    EID: 1117,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b4'),
+    EID: 1120,
+    DEPT: 'TEMP',
+    SALARY: 105000
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).sort({"SALARY" : 1})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759be'),
+    EID: 1138,
+    DEPT: 'TEMP',
+    SALARY: 35000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ca'),
+    EID: 1158,
+    DEPT: 'TEMP',
+    SALARY: 45000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c9'),
+    EID: 1157,
+    DEPT: 'TEMP',
+    SALARY: 45000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c5'),
+    EID: 1151,
+    DEPT: 'TEMP',
+    SALARY: 45000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b7'),
+    EID: 1128,
+    DEPT: 'TEMP',
+    SALARY: 45000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a4'),
+    EID: 1090,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a6'),
+    EID: 1093,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759aa'),
+    EID: 1092,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b5'),
+    EID: 1121,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c2'),
+    EID: 1105,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759bd'),
+    EID: 1107,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759bb'),
+    EID: 1106,
+    DEPT: 'TEMP',
+    SALARY: 50000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c8'),
+    EID: 1155,
+    DEPT: 'TEMP',
+    SALARY: 55000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c6'),
+    EID: 1152,
+    DEPT: 'TEMP',
+    SALARY: 55000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c4'),
+    EID: 1148,
+    DEPT: 'TEMP',
+    SALARY: 55000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c3'),
+    EID: 1134,
+    DEPT: 'TEMP',
+    SALARY: 55000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b2'),
+    EID: 1116,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b8'),
+    EID: 1129,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759af'),
+    EID: 1109,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759bc'),
+    EID: 1136,
+    DEPT: 'TEMP',
+    SALARY: 60000
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"DEPT" : "TEMP"}, {"DESI" : 0}).sort({"DEPT" : 1, "SALARY" : -1})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599f'),
+    EID: 1081,
+    DEPT: 'TEMP',
+    SALARY: 520000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b0'),
+    EID: 1113,
+    DEPT: 'TEMP',
+    SALARY: 190000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ab'),
+    EID: 1096,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a1'),
+    EID: 1085,
+    DEPT: 'TEMP',
+    SALARY: 185000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ae'),
+    EID: 1104,
+    DEPT: 'TEMP',
+    SALARY: 160000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a3'),
+    EID: 1088,
+    DEPT: 'TEMP',
+    SALARY: 126597
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599e'),
+    EID: 1079,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b3'),
+    EID: 1117,
+    DEPT: 'TEMP',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a2'),
+    EID: 1086,
+    DEPT: 'TEMP',
+    SALARY: 113000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b6'),
+    EID: 1123,
+    DEPT: 'TEMP',
+    SALARY: 110990
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b4'),
+    EID: 1120,
+    DEPT: 'TEMP',
+    SALARY: 105000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759a5'),
+    EID: 1091,
+    DEPT: 'TEMP',
+    SALARY: 95000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599d'),
+    EID: 1078,
+    DEPT: 'TEMP',
+    SALARY: 77500
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c1'),
+    EID: 1145,
+    DEPT: 'TEMP',
+    SALARY: 75000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c7'),
+    EID: 1153,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759ba'),
+    EID: 1133,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b1'),
+    EID: 1114,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759c0'),
+    EID: 1144,
+    DEPT: 'TEMP',
+    SALARY: 70000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759b9'),
+    EID: 1130,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d0759bf'),
+    EID: 1141,
+    DEPT: 'TEMP',
+    SALARY: 65000
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"SALARY" : {$gte: 100000}}, {"DESI" : 0}).sort({"DEPT" : 1, "SALARY" : -1})
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075971'),
+    EID: 1003,
+    DEPT: 'ADMIN',
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599c'),
+    EID: 1077,
+    DEPT: 'ADMIN',
+    SALARY: 205000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075984'),
+    EID: 1024,
+    DEPT: 'ADMIN',
+    SALARY: 181550
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075983'),
+    EID: 1023,
+    DEPT: 'ADMIN',
+    SALARY: 177095
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07599b'),
+    EID: 1075,
+    DEPT: 'ADMIN',
+    SALARY: 110000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075973'),
+    EID: 1005,
+    DEPT: 'HR',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075978'),
+    EID: 1012,
+    DEPT: 'HR',
+    SALARY: 314887
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075977'),
+    EID: 1011,
+    DEPT: 'HR',
+    SALARY: 294149
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597f'),
+    EID: 1019,
+    DEPT: 'HR',
+    SALARY: 190460
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075976'),
+    EID: 1007,
+    DEPT: 'HR',
+    SALARY: 157322
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075980'),
+    EID: 1020,
+    DEPT: 'HR',
+    SALARY: 134915
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075997'),
+    EID: 1072,
+    DEPT: 'IT',
+    SALARY: 185600
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075988'),
+    EID: 1025,
+    DEPT: 'IT',
+    SALARY: 168185
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075987'),
+    EID: 1028,
+    DEPT: 'IT',
+    SALARY: 155701
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    EID: 1004,
+    DEPT: 'MIS',
+    SALARY: 292129
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597a'),
+    EID: 1013,
+    DEPT: 'MIS',
+    SALARY: 223155
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075981'),
+    EID: 1021,
+    DEPT: 'MIS',
+    SALARY: 137567
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d07597d'),
+    EID: 1010,
+    DEPT: 'MIS',
+    SALARY: 134493
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075972'),
+    EID: 1001,
+    DEPT: 'OPS',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075979'),
+    EID: 1008,
+    DEPT: 'OPS',
+    SALARY: 383781
+  }
+]
+Type "it" for more
+Enterprise demo> db.sal.find({"SALARY" : {$gte: 100000}}, {"DESI" : 0}).sort({"DEPT" : 1, "SALARY" : -1}).limit(5).skip(10)
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075980'),
+    EID: 1020,
+    DEPT: 'HR',
+    SALARY: 134915
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075997'),
+    EID: 1072,
+    DEPT: 'IT',
+    SALARY: 185600
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075988'),
+    EID: 1025,
+    DEPT: 'IT',
+    SALARY: 168185
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075987'),
+    EID: 1028,
+    DEPT: 'IT',
+    SALARY: 155701
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    EID: 1004,
+    DEPT: 'MIS',
+    SALARY: 292129
+  }
+]
+Enterprise demo> .emp.findOne({"CITY" : "DELHI"})
+Invalid REPL keyword
+Enterprise demo> db.emp.findOne({"CITY" : "DELHI"})
+{
+  _id: ObjectId('68eaa6e71c46110a6af617e6'),
+  EID: 1001,
+  NAME: 'RAMESH GUPTA',
+  ADDR1: 'SECTOR 7',
+  ADDR2: 'Rohini',
+  CITY: 'DELHI',
+  PHONE: Long('9999002727'),
+  EMAIL: 'RK@YAHOO.CO.IN',
+  DOB: '9/1/1990',
+  DOJ: '3/15/2012'
+}
+Enterprise demo> db.emp.find({"CITY" : "DELHI"}, {"EID" :1, "NAME" : 1, "ADDR1" : 1, "CITY" : 1})
+[
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617e6'),
+    EID: 1001,
+    NAME: 'RAMESH GUPTA',
+    ADDR1: 'SECTOR 7',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617e8'),
+    EID: 1004,
+    NAME: 'Yogeshwar Sharma',
+    ADDR1: 'Sector 11',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617e9'),
+    EID: 1005,
+    NAME: 'Manoj Kumar',
+    ADDR1: 'B320',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617ec'),
+    EID: 1003,
+    NAME: 'Rajesh Sharma',
+    ADDR1: 'Sector 11',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f0'),
+    EID: 1011,
+    NAME: 'AMIT KAPOOR',
+    ADDR1: 'B2/45 DDA FLATS',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f1'),
+    EID: 1012,
+    NAME: 'MONIKA ARORA',
+    ADDR1: 'B1/45',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f3'),
+    EID: 1013,
+    NAME: 'ROHAN KUMAR',
+    ADDR1: 'B305',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f4'),
+    EID: 1015,
+    NAME: 'ABHISHEK SHARMA',
+    ADDR1: 'C2-101',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f5'),
+    EID: 1019,
+    NAME: 'RAJAT KAPOOR',
+    ADDR1: 'B501/1 POCKET 1',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f6'),
+    EID: 1020,
+    NAME: 'Rohan Kumar',
+    ADDR1: 'B-256',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f7'),
+    EID: 1021,
+    NAME: 'Lalit Sharma',
+    ADDR1: 'C2-401',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617f9'),
+    EID: 1023,
+    NAME: 'Devender Kapoor',
+    ADDR1: 'E102/3 Pocket 1 Sector 3',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617fa'),
+    EID: 1024,
+    NAME: 'Ravinder Kumar',
+    ADDR1: 'B302-Jay Maa Apt',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af617fd'),
+    EID: 1025,
+    NAME: 'GAURAV GUPTA',
+    ADDR1: 'D41-Jay Maa Apt',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af61803'),
+    EID: 1033,
+    NAME: 'MONIKA KAPOOR',
+    ADDR1: 'A401 PRAGYA APARTMENTS',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af6180a'),
+    EID: 1040,
+    NAME: 'SAMEER SHARMA',
+    ADDR1: 'B401 JYA MAA APT',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af61810'),
+    EID: 1049,
+    NAME: 'RAVINDER KAPOOR',
+    ADDR1: 'B302 PRAGYA APT',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af61812'),
+    EID: 1051,
+    NAME: 'RONITA',
+    ADDR1: 'C4/104',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af61816'),
+    EID: 1055,
+    NAME: 'ASHUTOSH KUMAR',
+    ADDR1: 'B2/204',
+    CITY: 'DELHI'
+  },
+  {
+    _id: ObjectId('68eaa6e71c46110a6af61817'),
+    EID: 1054,
+    NAME: 'RANJITA SHARMA',
+    ADDR1: 'POCKET 2',
+    CITY: 'DELHI'
+  }
+]
+Type "it" for more
+Enterprise demo> db.emp.createIndex({"CITY" : 1})
+CITY_1
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' }
+]
+Enterprise demo> db.emp.createIndex({"CITY"} : -1)
+Uncaught:
+SyntaxError: Unexpected token (1:26)
+
+> 1 | db.emp.createIndex({"CITY"} : -1)
+    |                           ^
+  2 |
+
+Enterprise demo> db.emp.createIndex({"CITY" : -1})
+CITY_-1
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1' }
+]
+Enterprise demo> db.emp.createIndex({"ADDR2" : -1})
+ADDR2_-1
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1' },
+  { v: 2, key: { ADDR2: -1 }, name: 'ADDR2_-1' }
+]
+Enterprise demo> db.emp.createIndex({"CITY" : 1, "ADDR2" : -1})
+CITY_1_ADDR2_-1
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1' },
+  { v: 2, key: { ADDR2: -1 }, name: 'ADDR2_-1' },
+  { v: 2, key: { CITY: 1, ADDR2: -1 }, name: 'CITY_1_ADDR2_-1' }
+]
+Enterprise demo> db.emp.createIndex({"DOJ" : 1}, {expireAfterSeconds : 600})
+DOJ_1
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1' },
+  { v: 2, key: { ADDR2: -1 }, name: 'ADDR2_-1' },
+  { v: 2, key: { CITY: 1, ADDR2: -1 }, name: 'CITY_1_ADDR2_-1' },
+  { v: 2, key: { DOJ: 1 }, name: 'DOJ_1', expireAfterSeconds: 600 }
+]
+Enterprise demo> db.emp.createIndex({"EID" : -1}, {unique: true})
+EID_-1
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1' },
+  { v: 2, key: { ADDR2: -1 }, name: 'ADDR2_-1' },
+  { v: 2, key: { CITY: 1, ADDR2: -1 }, name: 'CITY_1_ADDR2_-1' },
+  { v: 2, key: { DOJ: 1 }, name: 'DOJ_1', expireAfterSeconds: 600 },
+  { v: 2, key: { EID: -1 }, name: 'EID_-1', unique: true }
+]
+Enterprise demo> db.emp.insertOne({"EID" : 1002, "NAME" : "Pulak Pallab Kashyap", "CITY" : "DELHI"))
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:81)
+
+> 1 | db.emp.insertOne({"EID" : 1002, "NAME" : "Pulak Pallab Kashyap", "CITY" : "DELHI"))
+    |                                                                                  ^
+  2 |
+
+Enterprise demo> db.emp.insertOne({"EID" : 1002, "NAME" : "Pulak Pallab Kashyap", "CITY" : "DELHI"})
+MongoServerError: E11000 duplicate key error collection: demo.emp index: EID_-1 dup key: { EID: 1002 }
+Enterprise demo> db.emp.insertOne({"EID" : 2002, "NAME" : "PULAK PALLAB KASHYAP", "ADDR1" : "KALIRAM MEDHI ROAD, RANIBARI", "ADDR2" : "RANIBARI, PANBAZAR", "CITY" : "GUWAHATI", "PHONE" : "+918876825397", "EMAIL" : "PULAKPKASHYAP9@GMAIL.COM", "DOB" : "1993-12-20", "DOJ" : "2026-01-15"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68ec38cac1292c3ea4cebea5')
+}
+Enterprise demo> db.emp.createIndex({"EID" : -1, "DOB" : -1}, {unique: true})
+EID_-1_DOB_-1
+Enterprise demo> db.emp.createIndex({"CITY" : 1}, {unique: true})
+MongoServerError[IndexKeySpecsConflict]: An existing index has the same name as the requested index. When index names are not specified, they are auto generated and can cause conflicts. Please refer to our documentation. Requested index: { v: 2, unique: true, key: { CITY: 1 }, name: "CITY_1" }, existing index: { v: 2, key: { CITY: 1 }, name: "CITY_1" }
+Enterprise demo> db.emp.createIndex({"CITY" : 1}, {unique: true}, {name: "City_Uniq"})
+MongoServerError[TypeMismatch]: BSON field 'createIndexes.commitQuorum' is the wrong type 'object', expected types '[int, long, decimal, double, string']
+Enterprise demo> db.emp.createIndex({"CITY" : 1}, {name : "CityUniq"}, {unique: true})
+MongoServerError[TypeMismatch]: BSON field 'createIndexes.commitQuorum' is the wrong type 'object', expected types '[int, long, decimal, double, string']
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1' },
+  { v: 2, key: { ADDR2: -1 }, name: 'ADDR2_-1' },
+  { v: 2, key: { CITY: 1, ADDR2: -1 }, name: 'CITY_1_ADDR2_-1' },
+  { v: 2, key: { DOJ: 1 }, name: 'DOJ_1', expireAfterSeconds: 600 },
+  { v: 2, key: { EID: -1 }, name: 'EID_-1', unique: true },
+  {
+    v: 2,
+    key: { EID: -1, DOB: -1 },
+    name: 'EID_-1_DOB_-1',
+    unique: true
+  }
+]
+Enterprise demo> db.emp.createIndex({"EID" : -1, "CITY" : -1}, {unique: true})
+EID_-1_CITY_-1
+Enterprise demo> db.emp.createIndex({"EID" : 1}, {name : "ALL_OPTIONS"}, {unique: true}, {expireAfterSeconds : 600})
+MongoServerError[TypeMismatch]: BSON field 'createIndexes.commitQuorum' is the wrong type 'object', expected types '[int, long, decimal, double, string']
+Enterprise demo> db.emp.createIndex({"DOB" : 1, "DOJ" : -1}, {name : "ALL_OPTIONS"}, {unique: true}, {expireAfterSeconds : 600})
+MongoServerError[TypeMismatch]: BSON field 'createIndexes.commitQuorum' is the wrong type 'object', expected types '[int, long, decimal, double, string']
+Enterprise demo> db.emp.createIndex({"DOB" : 1, "DOJ" : -1}, {name : "ALL_OPTIONS", unique: true, expireAfterSeconds : 600})
+MongoServerError[CannotCreateIndex]: TTL indexes are single-field indexes, compound indexes do not support TTL. Index spec: { name: "ALL_OPTIONS", unique: true, expireAfterSeconds: 600, key: { DOB: 1, DOJ: -1 } }
+Enterprise demo> db.emp.createIndex({"DOB" : 1}, {name : "ALL_OPTIONS", unique: true, expireAfterSeconds : 600})
+MongoServerError[DuplicateKey]: Index build failed: a3bdf378-ffba-42b8-96b4-412b36dcb5dd: Collection demo.emp ( a9cefbea-b8da-42bf-91f8-d7906ef00e0b ) :: caused by :: E11000 duplicate key error collection: demo.emp index: ALL_OPTIONS dup key: { DOB: "1/1/1990" }
+Enterprise demo> db.emp.createIndex({"CITY" : 1}, {name : "CityUniq"}, {unique: true})
+MongoServerError[TypeMismatch]: BSON field 'createIndexes.commitQuorum' is the wrong type 'object', expected types '[int, long, decimal, double, string']
+Enterprise demo> db.emp.createIndex({"CITY" : 1}, {name : "CityUniq", unique: true})
+MongoServerError[DuplicateKey]: Index build failed: d788f102-9302-40a3-b1fb-637dbcf22543: Collection demo.emp ( a9cefbea-b8da-42bf-91f8-d7906ef00e0b ) :: caused by :: E11000 duplicate key error collection: demo.emp index: CityUniq dup key: { CITY: "CHANDIGARH" }
+Enterprise demo> db.emp.dropIndex({"EID" : -1})
+{ nIndexesWas: 9, ok: 1 }
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { CITY: 1 }, name: 'CITY_1' },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1' },
+  { v: 2, key: { ADDR2: -1 }, name: 'ADDR2_-1' },
+  { v: 2, key: { CITY: 1, ADDR2: -1 }, name: 'CITY_1_ADDR2_-1' },
+  { v: 2, key: { DOJ: 1 }, name: 'DOJ_1', expireAfterSeconds: 600 },
+  {
+    v: 2,
+    key: { EID: -1, DOB: -1 },
+    name: 'EID_-1_DOB_-1',
+    unique: true
+  },
+  {
+    v: 2,
+    key: { EID: -1, CITY: -1 },
+    name: 'EID_-1_CITY_-1',
+    unique: true
+  }
+]
+Enterprise demo> db.emp.dropIndexes()
+{
+  nIndexesWas: 8,
+  msg: 'non-_id indexes dropped for collection',
+  ok: 1
+}
+Enterprise demo> db.emp.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+Enterprise demo> db.emp.createIndex({"EID" : 1}, {name : "ALL_OPTIONS", unique: true, expireAfterSeconds : 600})
+ALL_OPTIONS
+Enterprise demo> db.emp.dropIndex({"EID" : 1})
+{ nIndexesWas: 2, ok: 1 }
+Enterprise demo> db.emp.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+Enterprise demo> db.emp.createIndex({"EID" : 1}, {name : "ALL_OPTIONS", unique: true, expireAfterSeconds : 600})
+ALL_OPTIONS
+Enterprise demo> db.emp.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  {
+    v: 2,
+    key: { EID: 1 },
+    name: 'ALL_OPTIONS',
+    unique: true,
+    expireAfterSeconds: 600
+  }
+]
+Enterprise demo> db.emp.dropIndex({"EID" : 1})
+{ nIndexesWas: 2, ok: 1 }
+Enterprise demo> db.emp.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+Enterprise demo> db.sal.find().limit(5)
+[
+  {
+    _id: ObjectId('68eabdb6349f878e5d075970'),
+    EID: 1002,
+    DEPT: 'OPS',
+    DESI: 'VP',
+    SALARY: 245000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075971'),
+    EID: 1003,
+    DEPT: 'ADMIN',
+    DESI: 'SR MANAGER',
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075972'),
+    EID: 1001,
+    DEPT: 'OPS',
+    DESI: 'Director',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075973'),
+    EID: 1005,
+    DEPT: 'HR',
+    DESI: 'Associate',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68eabdb6349f878e5d075974'),
+    EID: 1004,
+    DEPT: 'MIS',
+    DESI: 'Manager',
+    SALARY: 292129
+  }
+]
+Enterprise demo> db.sal.aggregate([{$group: {$_id : "$DEPT", "TotalSalary" : {$sum : "$SALARY"}}}])
+MongoServerError[Location40234]: The field '$_id' must be an accumulator object
+Enterprise demo> db.sal.aggregate([{$group: {_id : "$DEPT", "TotalSalary" : {$sum : "$SALARY"}}}])
+[
+  { _id: 'HR', TotalSalary: 1709309 },
+  { _id: 'MIS', TotalSalary: 1027064 },
+  { _id: 'ADMIN', TotalSalary: 1213818 },
+  { _id: 'OPS', TotalSalary: 3232557 },
+  { _id: 'mis', TotalSalary: 288767 },
+  { _id: 'IT', TotalSalary: 692886 },
+  { _id: 'TEMP', TotalSalary: 3883087 }
+]
+Enterprise demo> db.sal.aggregate([{$group: {_id : "$DEPT"}}])
+[
+  { _id: 'OPS' },
+  { _id: 'ADMIN' },
+  { _id: 'mis' },
+  { _id: 'HR' },
+  { _id: 'MIS' },
+  { _id: 'IT' },
+  { _id: 'TEMP' }
+]
+Enterprise demo> db.sal.aggregate([{$group: {_id : "$DEPT", "$DESI"}}])
+Uncaught:
+SyntaxError: Unexpected token (1:50)
+
+> 1 | db.sal.aggregate([{$group: {_id : "$DEPT", "$DESI"}}])
+    |                                                   ^
+  2 |
+
+Enterprise demo> db.sal.aggregate([{$group: [{_id : "$DEPT"}, {_id : "$DESI"}]}])
+MongoServerError[Location15947]: a group's fields must be specified in an object
+Enterprise demo> db.sal.aggregate([{$group: {_id : {"$DEPT", "$DESI"}}}])
+Uncaught:
+SyntaxError: Unexpected token (1:42)
+
+> 1 | db.sal.aggregate([{$group: {_id : {"$DEPT", "$DESI"}}}])
+    |                                           ^
+  2 |
+
+Enterprise demo> db.sal.aggregate([{$group: {_id : {"$DEPT", "$DESI"}, "TOTAL SALARY" : {$sum : "SALARY"}}}])
+Uncaught:
+SyntaxError: Unexpected token (1:42)
+
+> 1 | db.sal.aggregate([{$group: {_id : {"$DEPT", "$DESI"}, "TOTAL SALARY" : {$sum : "SALARY"}}}])
+    |                                           ^
+  2 |
+
+Enterprise demo> db.sal.aggregate([{$group: {_id : {"Field1" : "$DEPT", "Field2" : "$DESI"}, "TOTAL SALARY" : {$sum : "SALARY"}}}])
+[
+  {
+    _id: { Field1: 'TEMP', Field2: 'ASSISTANT MANAGER' },
+    'TOTAL SALARY': 0
+  },
+  {
+    _id: { Field1: 'MIS', Field2: 'ASSISTANT MANAGER' },
+    'TOTAL SALARY': 0
+  },
+  { _id: { Field1: 'OPS', Field2: 'Director' }, 'TOTAL SALARY': 0 },
+  {
+    _id: { Field1: 'ADMIN', Field2: 'SR. ASSOCIATE' },
+    'TOTAL SALARY': 0
+  },
+  {
+    _id: { Field1: 'TEMP', Field2: 'SR.ASSOCIATE' },
+    'TOTAL SALARY': 0
+  },
+  { _id: { Field1: 'ADMIN', Field2: 'ASSOCIATE' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'HR', Field2: 'Associate' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'OPS', Field2: 'VP' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'TEMP', Field2: 'MANAGER' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'TEMP', Field2: 'ASSOCIATE' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'MIS', Field2: 'Manager' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'HR', Field2: 'MANAGER' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'ADMIN', Field2: 'SR MANAGER' }, 'TOTAL SALARY': 0 },
+  {
+    _id: { Field1: 'OPS', Field2: 'SR. ASSOCIATE' },
+    'TOTAL SALARY': 0
+  },
+  {
+    _id: { Field1: 'OPS', Field2: 'ASSISTANT MANAGER' },
+    'TOTAL SALARY': 0
+  },
+  { _id: { Field1: 'HR', Field2: 'SR. ASSOCIATE' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'OPS', Field2: 'MANAGER' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'MIS', Field2: 'ASSOCIATE' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'HR', Field2: 'ASSOCIATE' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'IT', Field2: 'ASSOCIATE' }, 'TOTAL SALARY': 0 }
+]
+Type "it" for more
+Enterprise demo> it
+[
+  { _id: { Field1: 'IT', Field2: 'MANAGER' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'OPS', Field2: 'ASSOCIATE' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'MIS', Field2: 'MANAGER' }, 'TOTAL SALARY': 0 },
+  { _id: { Field1: 'mis', Field2: 'associate' }, 'TOTAL SALARY': 0 },
+  {
+    _id: { Field1: 'ADMIN', Field2: 'ASSISTANT MANAGER' },
+    'TOTAL SALARY': 0
+  },
+  { _id: { Field1: 'OPS', Field2: 'ASSOCOATE' }, 'TOTAL SALARY': 0 }
+]
+Enterprise demo> db.sal.aggregate([{$group: {_id : {"Field1" : "$DEPT", "Field2" : "$DESI"}}}])
+[o cursor
+  { _id: { Field1: 'OPS', Field2: 'Director' } },
+  { _id: { Field1: 'ADMIN', Field2: 'ASSISTANT MANAGER' } },
+  { _id: { Field1: 'OPS', Field2: 'ASSOCOATE' } },
+  { _id: { Field1: 'MIS', Field2: 'ASSISTANT MANAGER' } },
+  { _id: { Field1: 'ADMIN', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'HR', Field2: 'Associate' } },
+  { _id: { Field1: 'OPS', Field2: 'VP' } },
+  { _id: { Field1: 'ADMIN', Field2: 'SR. ASSOCIATE' } },
+  { _id: { Field1: 'TEMP', Field2: 'SR.ASSOCIATE' } },
+  { _id: { Field1: 'TEMP', Field2: 'MANAGER' } },
+  { _id: { Field1: 'TEMP', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'MIS', Field2: 'Manager' } },
+  { _id: { Field1: 'TEMP', Field2: 'ASSISTANT MANAGER' } },
+  { _id: { Field1: 'OPS', Field2: 'ASSISTANT MANAGER' } },
+  { _id: { Field1: 'HR', Field2: 'MANAGER' } },
+  { _id: { Field1: 'ADMIN', Field2: 'SR MANAGER' } },
+  { _id: { Field1: 'MIS', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'IT', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'HR', Field2: 'SR. ASSOCIATE' } },
+  { _id: { Field1: 'OPS', Field2: 'MANAGER' } }
+]
+Type "it" for more
+Enterprise demo> db.sal.aggregate([{$group: {_id : {"Field1" : "$DEPT", "Field2" : "$DESI"}}}]).sort("Field1")
+MongoServerError[Location15973]: the $sort key specification must be an object
+Enterprise demo> db.sal.aggregate([{$group: {_id : {"Field1" : "$DEPT", "Field2" : "$DESI"}}}]).sort("Field1": 1)
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:92)
+
+> 1 | db.sal.aggregate([{$group: {_id : {"Field1" : "$DEPT", "Field2" : "$DESI"}}}]).sort("Field1": 1)
+    |                                                                                             ^
+  2 |
+
+Enterprise demo> db.sal.aggregate([{$group: {_id : {"Field1" : "$DEPT", "Field2" : "$DESI"}}}]).sort({"Field1": 1})
+[
+  { _id: { Field1: 'TEMP', Field2: 'ASSISTANT MANAGER' } },
+  { _id: { Field1: 'MIS', Field2: 'ASSISTANT MANAGER' } },
+  { _id: { Field1: 'OPS', Field2: 'Director' } },
+  { _id: { Field1: 'ADMIN', Field2: 'SR. ASSOCIATE' } },
+  { _id: { Field1: 'TEMP', Field2: 'SR.ASSOCIATE' } },
+  { _id: { Field1: 'ADMIN', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'HR', Field2: 'Associate' } },
+  { _id: { Field1: 'OPS', Field2: 'VP' } },
+  { _id: { Field1: 'TEMP', Field2: 'MANAGER' } },
+  { _id: { Field1: 'TEMP', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'MIS', Field2: 'Manager' } },
+  { _id: { Field1: 'HR', Field2: 'MANAGER' } },
+  { _id: { Field1: 'ADMIN', Field2: 'SR MANAGER' } },
+  { _id: { Field1: 'OPS', Field2: 'SR. ASSOCIATE' } },
+  { _id: { Field1: 'OPS', Field2: 'ASSISTANT MANAGER' } },
+  { _id: { Field1: 'HR', Field2: 'SR. ASSOCIATE' } },
+  { _id: { Field1: 'OPS', Field2: 'MANAGER' } },
+  { _id: { Field1: 'MIS', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'HR', Field2: 'ASSOCIATE' } },
+  { _id: { Field1: 'IT', Field2: 'ASSOCIATE' } }
+]
+Type "it" for more
+Enterprise demo> db.sal.aggregate([{$group: {_id: "DESI"}, "TOTAL_SALARY" : {$sum : "SALARY"}}])
+MongoServerError[Location40323]: A pipeline stage specification object must contain exactly one field.
+Enterprise demo> db.sal.aggregate([{$group: {_id: "$DESI"}, "TOTAL_SALARY" : {$sum : "$SALARY"}}])
+MongoServerError[Location40323]: A pipeline stage specification object must contain exactly one field.
+Enterprise demo> db.sal.aggregate([{$group: {_id: "$DESI", "TOTAL_SALARY" : {$sum : "$SALARY"}}}])
+[
+  { _id: 'MANAGER', TOTAL_SALARY: 2169480 },
+  { _id: 'SR MANAGER', TOTAL_SALARY: 245673 },
+  { _id: 'SR. ASSOCIATE', TOTAL_SALARY: 625887 },
+  { _id: 'associate', TOTAL_SALARY: 288767 },
+  { _id: 'ASSISTANT MANAGER', TOTAL_SALARY: 622682 },
+  { _id: 'Manager', TOTAL_SALARY: 292129 },
+  { _id: 'ASSOCOATE', TOTAL_SALARY: 159200 },
+  { _id: 'VP', TOTAL_SALARY: 341500 },
+  { _id: 'ASSOCIATE', TOTAL_SALARY: 6360144 },
+  { _id: 'Associate', TOTAL_SALARY: 397026 },
+  { _id: 'Director', TOTAL_SALARY: 480000 },
+  { _id: 'SR.ASSOCIATE', TOTAL_SALARY: 65000 }
+]
+Enterprise demo>Microsoft Windows [Version 10.0.19045.6396]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\pulak>mongosh
+Current Mongosh Log ID: 68ecfd06c7702c75d9cebea3
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8
+Using MongoDB:          8.0.15
+Using Mongosh:          2.5.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-10-11T03:03:55.440+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+Enterprise test> show dbs
+admin    40.00 KiB
+config   72.00 KiB
+demo    208.00 KiB
+local    72.00 KiB
+Enterprise test> use demo
+switched to db demo
+Enterprise demo> show collections
+emp
+Friends
+sal
+Enterprise demo> db.sal.aggregate([{$group: {_id: "$DESI", "Total_Counts" : {$sum: 1}, "Total_Salary" : {$sum : "$SALARY"}, "Min_Salary" : {$min: "$SALARY"}, "Max_Salary" : {$max : "$SALARY"}}}])
+[
+  {
+    _id: 'SR MANAGER',
+    Total_Counts: 1,
+    Total_Salary: 245673,
+    Min_Salary: 245673,
+    Max_Salary: 245673
+  },
+  {
+    _id: 'MANAGER',
+    Total_Counts: 10,
+    Total_Salary: 2169480,
+    Min_Salary: 110990,
+    Max_Salary: 383781
+  },
+  {
+    _id: 'SR. ASSOCIATE',
+    Total_Counts: 4,
+    Total_Salary: 625887,
+    Min_Salary: 56000,
+    Max_Salary: 314887
+  },
+  {
+    _id: 'Director',
+    Total_Counts: 1,
+    Total_Salary: 480000,
+    Min_Salary: 480000,
+    Max_Salary: 480000
+  },
+  {
+    _id: 'Associate',
+    Total_Counts: 1,
+    Total_Salary: 397026,
+    Min_Salary: 397026,
+    Max_Salary: 397026
+  },
+  {
+    _id: 'ASSOCIATE',
+    Total_Counts: 64,
+    Total_Salary: 6360144,
+    Min_Salary: 35000,
+    Max_Salary: 'NULL'
+  },
+  {
+    _id: 'VP',
+    Total_Counts: 2,
+    Total_Salary: 341500,
+    Min_Salary: 96500,
+    Max_Salary: 245000
+  },
+  {
+    _id: 'SR.ASSOCIATE',
+    Total_Counts: 1,
+    Total_Salary: 65000,
+    Min_Salary: 65000,
+    Max_Salary: 65000
+  },
+  {
+    _id: 'Manager',
+    Total_Counts: 1,
+    Total_Salary: 292129,
+    Min_Salary: 292129,
+    Max_Salary: 292129
+  },
+  {
+    _id: 'ASSISTANT MANAGER',
+    Total_Counts: 6,
+    Total_Salary: 622682,
+    Min_Salary: 60000,
+    Max_Salary: 194335
+  },
+  {
+    _id: 'ASSOCOATE',
+    Total_Counts: 1,
+    Total_Salary: 159200,
+    Min_Salary: 159200,
+    Max_Salary: 159200
+  },
+  {
+    _id: 'associate',
+    Total_Counts: 1,
+    Total_Salary: 288767,
+    Min_Salary: 288767,
+    Max_Salary: 288767
+  }
+]
+Enterprise demo> db.sal.aggregate([{$group: {_id: "$DESI", "Total_Counts" : {$sum: 1}, "Total_Salary" : {$sum : "$SALARY"}, "Min_Salary" : {$min: "$SALARY"}, "Max_Salary" : {$max : "$SALARY"}}}]). sort({"Total_Counts" : -1})
+[
+  {
+    _id: 'ASSOCIATE',
+    Total_Counts: 64,
+    Total_Salary: 6360144,
+    Min_Salary: 35000,
+    Max_Salary: 'NULL'
+  },
+  {
+    _id: 'MANAGER',
+    Total_Counts: 10,
+    Total_Salary: 2169480,
+    Min_Salary: 110990,
+    Max_Salary: 383781
+  },
+  {
+    _id: 'ASSISTANT MANAGER',
+    Total_Counts: 6,
+    Total_Salary: 622682,
+    Min_Salary: 60000,
+    Max_Salary: 194335
+  },
+  {
+    _id: 'SR. ASSOCIATE',
+    Total_Counts: 4,
+    Total_Salary: 625887,
+    Min_Salary: 56000,
+    Max_Salary: 314887
+  },
+  {
+    _id: 'VP',
+    Total_Counts: 2,
+    Total_Salary: 341500,
+    Min_Salary: 96500,
+    Max_Salary: 245000
+  },
+  {
+    _id: 'SR MANAGER',
+    Total_Counts: 1,
+    Total_Salary: 245673,
+    Min_Salary: 245673,
+    Max_Salary: 245673
+  },
+  {
+    _id: 'associate',
+    Total_Counts: 1,
+    Total_Salary: 288767,
+    Min_Salary: 288767,
+    Max_Salary: 288767
+  },
+  {
+    _id: 'Manager',
+    Total_Counts: 1,
+    Total_Salary: 292129,
+    Min_Salary: 292129,
+    Max_Salary: 292129
+  },
+  {
+    _id: 'ASSOCOATE',
+    Total_Counts: 1,
+    Total_Salary: 159200,
+    Min_Salary: 159200,
+    Max_Salary: 159200
+  },
+  {
+    _id: 'Associate',
+    Total_Counts: 1,
+    Total_Salary: 397026,
+    Min_Salary: 397026,
+    Max_Salary: 397026
+  },
+  {
+    _id: 'Director',
+    Total_Counts: 1,
+    Total_Salary: 480000,
+    Min_Salary: 480000,
+    Max_Salary: 480000
+  },
+  {
+    _id: 'SR.ASSOCIATE',
+    Total_Counts: 1,
+    Total_Salary: 65000,
+    Min_Salary: 65000,
+    Max_Salary: 65000
+  }
+]
+Enterprise demo> db.sal.aggregate([{$group: {_id: {"DEPARTMENT" : "$DEPT", "DESIGNATION" : "DESI"}, "Total_Counts" : {$sum: 1}, "Total_Salary" : {$sum : "$SALARY"}, "Min_Salary" : {$min: "$SALARY"}, "Max_Salary" : {$max : "$SALARY"}}}]). sort({"Total_Counts" : -1})
+[
+  {
+    _id: { DEPARTMENT: 'TEMP', DESIGNATION: 'DESI' },
+    Total_Counts: 44,
+    Total_Salary: 3883087,
+    Min_Salary: 35000,
+    Max_Salary: 520000
+  },
+  {
+    _id: { DEPARTMENT: 'OPS', DESIGNATION: 'DESI' },
+    Total_Counts: 16,
+    Total_Salary: 3232557,
+    Min_Salary: 65000,
+    Max_Salary: 'NULL'
+  },
+  {
+    _id: { DEPARTMENT: 'ADMIN', DESIGNATION: 'DESI' },
+    Total_Counts: 10,
+    Total_Salary: 1213818,
+    Min_Salary: 51500,
+    Max_Salary: 245673
+  },
+  {
+    _id: { DEPARTMENT: 'HR', DESIGNATION: 'DESI' },
+    Total_Counts: 9,
+    Total_Salary: 1709309,
+    Min_Salary: 61500,
+    Max_Salary: 397026
+  },
+  {
+    _id: { DEPARTMENT: 'MIS', DESIGNATION: 'DESI' },
+    Total_Counts: 7,
+    Total_Salary: 1027064,
+    Min_Salary: 72640,
+    Max_Salary: 292129
+  },
+  {
+    _id: { DEPARTMENT: 'IT', DESIGNATION: 'DESI' },
+    Total_Counts: 6,
+    Total_Salary: 692886,
+    Min_Salary: 51500,
+    Max_Salary: 185600
+  },
+  {
+    _id: { DEPARTMENT: 'mis', DESIGNATION: 'DESI' },
+    Total_Counts: 1,
+    Total_Salary: 288767,
+    Min_Salary: 288767,
+    Max_Salary: 288767
+  }
+]
+Enterprise demo> db.sal.aggregate([{$group: {_id: {"DEPARTMENT" : "$DEPT", "DESIGNATION" : "$DESI"}, "Total_Counts" : {$sum: 1}, "Total_Salary" : {$sum : "$SALARY"}, "Min_Salary" : {$min: "$SALARY"}, "Max_Salary" : {$max : "$SALARY"}}}]). sort({"Total_Counts" : -1})
+[
+  {
+    _id: { DEPARTMENT: 'TEMP', DESIGNATION: 'ASSOCIATE' },
+    Total_Counts: 39,
+    Total_Salary: 3450500,
+    Min_Salary: 35000,
+    Max_Salary: 520000
+  },
+  {
+    _id: { DEPARTMENT: 'ADMIN', DESIGNATION: 'ASSOCIATE' },
+    Total_Counts: 7,
+    Total_Salary: 842645,
+    Min_Salary: 51500,
+    Max_Salary: 205000
+  },
+  {
+    _id: { DEPARTMENT: 'OPS', DESIGNATION: 'ASSOCIATE' },
+    Total_Counts: 6,
+    Total_Salary: 618800,
+    Min_Salary: 65000,
+    Max_Salary: 'NULL'
+  },
+  {
+    _id: { DEPARTMENT: 'IT', DESIGNATION: 'ASSOCIATE' },
+    Total_Counts: 5,
+    Total_Salary: 537185,
+    Min_Salary: 51500,
+    Max_Salary: 185600
+  },
+  {
+    _id: { DEPARTMENT: 'HR', DESIGNATION: 'ASSOCIATE' },
+    Total_Counts: 5,
+    Total_Salary: 762574,
+    Min_Salary: 61500,
+    Max_Salary: 294149
+  },
+  {
+    _id: { DEPARTMENT: 'OPS', DESIGNATION: 'MANAGER' },
+    Total_Counts: 4,
+    Total_Salary: 1261222,
+    Min_Salary: 251478,
+    Max_Salary: 383781
+  },
+  {
+    _id: { DEPARTMENT: 'MIS', DESIGNATION: 'ASSISTANT MANAGER' },
+    Total_Counts: 2,
+    Total_Salary: 228847,
+    Min_Salary: 91280,
+    Max_Salary: 137567
+  },
+  {
+    _id: { DEPARTMENT: 'OPS', DESIGNATION: 'VP' },
+    Total_Counts: 2,
+    Total_Salary: 341500,
+    Min_Salary: 96500,
+    Max_Salary: 245000
+  },
+  {
+    _id: { DEPARTMENT: 'TEMP', DESIGNATION: 'MANAGER' },
+    Total_Counts: 2,
+    Total_Salary: 237587,
+    Min_Salary: 110990,
+    Max_Salary: 126597
+  },
+  {
+    _id: { DEPARTMENT: 'TEMP', DESIGNATION: 'ASSISTANT MANAGER' },
+    Total_Counts: 2,
+    Total_Salary: 130000,
+    Min_Salary: 60000,
+    Max_Salary: 70000
+  },
+  {
+    _id: { DEPARTMENT: 'MIS', DESIGNATION: 'ASSOCIATE' },
+    Total_Counts: 2,
+    Total_Salary: 148440,
+    Min_Salary: 72640,
+    Max_Salary: 75800
+  },
+  {
+    _id: { DEPARTMENT: 'HR', DESIGNATION: 'SR. ASSOCIATE' },
+    Total_Counts: 2,
+    Total_Salary: 392387,
+    Min_Salary: 77500,
+    Max_Salary: 314887
+  },
+  {
+    _id: { DEPARTMENT: 'MIS', DESIGNATION: 'MANAGER' },
+    Total_Counts: 2,
+    Total_Salary: 357648,
+    Min_Salary: 134493,
+    Max_Salary: 223155
+  },
+  {
+    _id: { DEPARTMENT: 'OPS', DESIGNATION: 'Director' },
+    Total_Counts: 1,
+    Total_Salary: 480000,
+    Min_Salary: 480000,
+    Max_Salary: 480000
+  },
+  {
+    _id: { DEPARTMENT: 'ADMIN', DESIGNATION: 'ASSISTANT MANAGER' },
+    Total_Counts: 1,
+    Total_Salary: 69500,
+    Min_Salary: 69500,
+    Max_Salary: 69500
+  },
+  {
+    _id: { DEPARTMENT: 'OPS', DESIGNATION: 'ASSOCOATE' },
+    Total_Counts: 1,
+    Total_Salary: 159200,
+    Min_Salary: 159200,
+    Max_Salary: 159200
+  },
+  {
+    _id: { DEPARTMENT: 'HR', DESIGNATION: 'Associate' },
+    Total_Counts: 1,
+    Total_Salary: 397026,
+    Min_Salary: 397026,
+    Max_Salary: 397026
+  },
+  {
+    _id: { DEPARTMENT: 'ADMIN', DESIGNATION: 'SR. ASSOCIATE' },
+    Total_Counts: 1,
+    Total_Salary: 56000,
+    Min_Salary: 56000,
+    Max_Salary: 56000
+  },
+  {
+    _id: { DEPARTMENT: 'TEMP', DESIGNATION: 'SR.ASSOCIATE' },
+    Total_Counts: 1,
+    Total_Salary: 65000,
+    Min_Salary: 65000,
+    Max_Salary: 65000
+  },
+  {
+    _id: { DEPARTMENT: 'MIS', DESIGNATION: 'Manager' },
+    Total_Counts: 1,
+    Total_Salary: 292129,
+    Min_Salary: 292129,
+    Max_Salary: 292129
+  }
+]
+Type "it" for more
+Enterprise demo> db.order.insertOne({"_id" : "O0001", "PDESC" : "ASUS R558UQ LAPTOP", "CATEGORY" : "IT", "TOTALSTK" : 6, "BALANCESTK" : 4, "PURCHASEDBY" : [{"CID" : "C0001", "CNAME" : "PULAK PALLAB KASHYAP", "DATE" : "20-10-2025"}, {"CID" : "C0002", "CNAME" : "BHASKAR BIJOY KASHYAP", "DATE" : "21-10-2025"}]})
+{ acknowledged: true, insertedId: 'O0001' }
+Enterprise demo> db.order.find()
+[
+  {
+    _id: 'O0001',
+    PDESC: 'ASUS R558UQ LAPTOP',
+    CATEGORY: 'IT',
+    TOTALSTK: 6,
+    BALANCESTK: 4,
+    PURCHASEDBY: [
+      {
+        CID: 'C0001',
+        CNAME: 'PULAK PALLAB KASHYAP',
+        DATE: '20-10-2025'
+      },
+      {
+        CID: 'C0002',
+        CNAME: 'BHASKAR BIJOY KASHYAP',
+        DATE: '21-10-2025'
+      }
+    ]
+  }
+]
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}}, $push : {"PURCHASEDBY": {"CID" : "C0003", "CNAME" : "WASIMA SHAHREEN", "DATE" : "22-10-2025"}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 4,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}}, $push : {"PURCHASEDBY": {"CID" : "C0004", "CNAME" : "JYOTISHMAN BARUAH", "DATE" : "23-10-2025"}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 3,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}}, $push : {"PURCHASEDBY": {"CID" : "C0005", "CNAME" : "ROHAN AHMED BARUA", "DATE" : "24-10-2025"}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 2,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}}, $push : {"PURCHASEDBY": {"CID" : "C0006", "CNAME" : "RIJUWAN HUSSAIN", "DATE" : "25-10-2025"}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 1,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}}, $push : {"PURCHASEDBY": {"CID" : "C0007", "CNAME" : "MADHURYA DAS", "DATE" : "25-10-2025"}}})
+null
+Enterprise demo> db.order.find()
+[
+  {
+    _id: 'O0001',
+    PDESC: 'ASUS R558UQ LAPTOP',
+    CATEGORY: 'IT',
+    TOTALSTK: 6,
+    BALANCESTK: 0,
+    PURCHASEDBY: [
+      {
+        CID: 'C0001',
+        CNAME: 'PULAK PALLAB KASHYAP',
+        DATE: '20-10-2025'
+      },
+      {
+        CID: 'C0002',
+        CNAME: 'BHASKAR BIJOY KASHYAP',
+        DATE: '21-10-2025'
+      }
+    ]
+  }
+]
+Enterprise demo> db.order.drop()
+true
+Enterprise demo> show collections
+emp
+Friends
+sal
+Enterprise demo> db.order.insertOne({"_id" : "O0001", "PDESC" : "ASUS R558UQ LAPTOP", "CATEGORY" : "IT", "TOTALSTK" : 6, "BALANCESTK" : 4, "PURCHASEDBY" : [{"CID" : "C0001", "CNAME" : "PULAK PALLAB KASHYAP", "DATE" : "20-10-2025"}, {"CID" : "C0002", "CNAME" : "BHASKAR BIJOY KASHYAP", "DATE" : "21-10-2025"}]})
+{ acknowledged: true, insertedId: 'O0001' }
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}, $push : {"PURCHASEDBY": {"CID" : "C0003", "CNAME" : "WASIMA SHAHREEN", "DATE" : "22-10-2025"}}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:208)
+
+> 1 | db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}, $push : {"PURCHASEDBY": {"CID" : "C0003", "CNAME" : "WASIMA SHAHREEN", "DATE" : "22-10-2025"}}})
+    |                                                                                                                                                                                                                 ^
+  2 |
+
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}, $push : {"PURCHASEDBY": {"CID" : "C0003", "CNAME" : "WASIMA SHAHREEN", "DATE" : "22-10-2025"}}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 4,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}, $push : {"PURCHASEDBY": {"CID" : "C0004", "CNAME" : "JYOTISHMAN BARUAH", "DATE" : "23-10-2025"}}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 3,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    },
+    { CID: 'C0003', CNAME: 'WASIMA SHAHREEN', DATE: '22-10-2025' }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}, $push : {"PURCHASEDBY": {"CID" : "C0005", "CNAME" : "ROHAN AHMED BARUA", "DATE" : "24-10-2025"}}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 2,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    },
+    { CID: 'C0003', CNAME: 'WASIMA SHAHREEN', DATE: '22-10-2025' },
+    { CID: 'C0004', CNAME: 'JYOTISHMAN BARUAH', DATE: '23-10-2025' }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}, $push : {"PURCHASEDBY": {"CID" : "C0006", "CNAME" : "RIJUWAN HUSSAIN", "DATE" : "25-10-2025"}}}})
+{
+  _id: 'O0001',
+  PDESC: 'ASUS R558UQ LAPTOP',
+  CATEGORY: 'IT',
+  TOTALSTK: 6,
+  BALANCESTK: 1,
+  PURCHASEDBY: [
+    { CID: 'C0001', CNAME: 'PULAK PALLAB KASHYAP', DATE: '20-10-2025' },
+    {
+      CID: 'C0002',
+      CNAME: 'BHASKAR BIJOY KASHYAP',
+      DATE: '21-10-2025'
+    },
+    { CID: 'C0003', CNAME: 'WASIMA SHAHREEN', DATE: '22-10-2025' },
+    { CID: 'C0004', CNAME: 'JYOTISHMAN BARUAH', DATE: '23-10-2025' },
+    { CID: 'C0005', CNAME: 'ROHAN AHMED BARUA', DATE: '24-10-2025' }
+  ]
+}
+Enterprise demo> db.order.findAndModify({query: {"_id" : "O0001", "BALANCESTK" : {$gt : 0}}, update: {$inc : {"BALANCESTK" : -1}, $push : {"PURCHASEDBY": {"CID" : "C0007", "CNAME" : "MADHURYA DAS", "DATE" : "25-10-2025"}}}})
+null
+Enterprise demo> db.order.find()
+[
+  {
+    _id: 'O0001',
+    PDESC: 'ASUS R558UQ LAPTOP',
+    CATEGORY: 'IT',
+    TOTALSTK: 6,
+    BALANCESTK: 0,
+    PURCHASEDBY: [
+      {
+        CID: 'C0001',
+        CNAME: 'PULAK PALLAB KASHYAP',
+        DATE: '20-10-2025'
+      },
+      {
+        CID: 'C0002',
+        CNAME: 'BHASKAR BIJOY KASHYAP',
+        DATE: '21-10-2025'
+      },
+      { CID: 'C0003', CNAME: 'WASIMA SHAHREEN', DATE: '22-10-2025' },
+      { CID: 'C0004', CNAME: 'JYOTISHMAN BARUAH', DATE: '23-10-2025' },
+      { CID: 'C0005', CNAME: 'ROHAN AHMED BARUA', DATE: '24-10-2025' },
+      { CID: 'C0006', CNAME: 'RIJUWAN HUSSAIN', DATE: '25-10-2025' }
+    ]
+  }
+]
+Enterprise demo>
