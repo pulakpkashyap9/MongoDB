@@ -1,0 +1,532 @@
+Microsoft Windows [Version 10.0.19045.6456]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\pulak>mongosh
+Current Mongosh Log ID: 68f28fb0ad33cca64ecebea3
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8
+Using MongoDB:          8.0.15
+Using Mongosh:          2.5.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-10-18T00:16:47.808+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+Enterprise test> show dbs
+LearnBay_MongoDB  216.00 KiB
+admin              40.00 KiB
+config             72.00 KiB
+demo                2.24 MiB
+local              72.00 KiB
+test                1.68 MiB
+Enterprise test> use demo
+switched to db demo
+Enterprise demo> show collections
+emp
+Friends
+fs.chunks
+fs.files
+order
+sal
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000,
+    Company: 'PBW Association'
+  }
+]
+Enterprise demo> db.Firends.findOne()
+null
+Enterprise demo> db.Firends.findOne()
+null
+Enterprise demo> db.Friends.findOne()
+{
+  _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+  FID: 'A0001',
+  Name: 'Pulak Pallab Kashyap',
+  City: 'GNOIDA',
+  DOJ: '2026-01-15',
+  Dept: 'IT',
+  Desi: 'Data Scientist',
+  Salary: 250000,
+  Company: 'PBW Association'
+}
+Enterprise demo> db
+demo
+Enterprise demo> use LearnBay_MongoDB
+switched to db LearnBay_MongoDB
+Enterprise LearnBay_MongoDB> db.dropDatabase()
+{ ok: 1, dropped: 'LearnBay_MongoDB' }
+Enterprise LearnBay_MongoDB> show dbs
+admin   40.00 KiB
+config  72.00 KiB
+demo     2.24 MiB
+local   72.00 KiB
+test     1.68 MiB
+Enterprise LearnBay_MongoDB> db.createCollection("Check", {capped: true, max : 20, size: 50000})
+{ ok: 1 }
+Enterprise LearnBay_MongoDB> show collections
+Check
+Enterprise LearnBay_MongoDB> db
+LearnBay_MongoDB
+Enterprise LearnBay_MongoDB> db.Check2.InsertOne({"ID" : "A0001", "NAME" : "Pulak Pallab Kashyap", "COMPANY" : "Google", "ROLE" : "Data Scientist", "SALARY" : 150000})
+TypeError: db.Check2.InsertOne is not a function
+Enterprise LearnBay_MongoDB> db.Check2.insertOne({"ID" : "A0001", "NAME" : "Pulak Pallab Kashyap", "COMPANY" : "Google", "ROLE" : "Data Scientist", "SALARY" : 150000})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68f2f941ad33cca64ecebea4')
+}
+Enterprise LearnBay_MongoDB> db,Check2.insertMany([{"ID" : "A0002", "NAME" : "Bhaskar Bijoy Kashyap", "COMPANY" : "Apple", "ROLE" : "ML Engineer", "SALARY" : 150000}, {"ID" : "A0003", "NAME" : "Wasima Shahreen", "COMPANY" : "Netflix", "ROLE" : "Manager", "SALARY" : 125000}, {"ID" : "A0004", "NAME" : "Manash Mon Goswami", "COMPANY" : "Amazon", "ROLE" : "Project Manager", "SALARY" : 100000}])
+ReferenceError: Check2 is not defined
+Enterprise LearnBay_MongoDB> db.Check2.insertMany([{"ID" : "A0002", "NAME" : "Bhaskar Bijoy Kashyap", "COMPANY" : "Apple", "ROLE" : "ML Engineer", "SALARY" : 150000}, {"ID" : "A0003", "NAME" : "Wasima Shahreen", "COMPANY" : "Netflix", "ROLE" : "Manager", "SALARY" : 125000}, {"ID" : "A0004", "NAME" : "Manash Mon Goswami", "COMPANY" : "Amazon", "ROLE" : "Project Manager", "SALARY" : 100000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68f2fac8ad33cca64ecebea5'),
+    '1': ObjectId('68f2fac8ad33cca64ecebea6'),
+    '2': ObjectId('68f2fac8ad33cca64ecebea7')
+  }
+}
+Enterprise LearnBay_MongoDB> db.Check2.find()
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 150000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea5'),
+    ID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    COMPANY: 'Apple',
+    ROLE: 'ML Engineer',
+    SALARY: 150000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea6'),
+    ID: 'A0003',
+    NAME: 'Wasima Shahreen',
+    COMPANY: 'Netflix',
+    ROLE: 'Manager',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea7'),
+    ID: 'A0004',
+    NAME: 'Manash Mon Goswami',
+    COMPANY: 'Amazon',
+    ROLE: 'Project Manager',
+    SALARY: 100000
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check.drop()
+true
+Enterprise LearnBay_MongoDB> show collections
+Check2
+Enterprise LearnBay_MongoDB> db.find({"ROLE" : "DataScientist"})
+TypeError: db.find is not a function
+Enterprise LearnBay_MongoDB> db.Check2.find({"ROLE" : "DataScientist"})
+
+Enterprise LearnBay_MongoDB> db.Check2.find({"ROLE" : "DataScientist"})
+
+Enterprise LearnBay_MongoDB> db.Check2.find({"ROLE" : "Data Scientist"})
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 150000
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.find({$and: [{"ROLE" : "Data Scientist"}, {"SALARY" : 150000}]})
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 150000
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.find({$or: [{"SALARY" : {$gt: 125000}}, {"COMPANY" : "Amazon"}]})
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 150000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea5'),
+    ID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    COMPANY: 'Apple',
+    ROLE: 'ML Engineer',
+    SALARY: 150000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea7'),
+    ID: 'A0004',
+    NAME: 'Manash Mon Goswami',
+    COMPANY: 'Amazon',
+    ROLE: 'Project Manager',
+    SALARY: 100000
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.updateOne({$or: [{"ROLE" : "Data Scientist"}, {"COMPANY" : "Apple"}]}, {$set: {"SALARY" : 250000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise LearnBay_MongoDB> db.Check2.find()
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 250000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea5'),
+    ID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    COMPANY: 'Apple',
+    ROLE: 'ML Engineer',
+    SALARY: 150000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea6'),
+    ID: 'A0003',
+    NAME: 'Wasima Shahreen',
+    COMPANY: 'Netflix',
+    ROLE: 'Manager',
+    SALARY: 125000
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea7'),
+    ID: 'A0004',
+    NAME: 'Manash Mon Goswami',
+    COMPANY: 'Amazon',
+    ROLE: 'Project Manager',
+    SALARY: 100000
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.updateMany({}, {$set: {"CITY" : "San Francisco", "NATIONALITY" : "India"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:83)
+
+> 1 | db.Check2.updateMany({}, {$set: {"CITY" : "San Francisco", "NATIONALITY" : "India"})
+    |                                                                                    ^
+  2 |
+
+Enterprise LearnBay_MongoDB> db.Check2.updateMany({}, {$set: {"CITY" : "San Francisco", "NATIONALITY" : "India"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+Enterprise LearnBay_MongoDB> dn.Check2.find()
+ReferenceError: dn is not defined
+Enterprise LearnBay_MongoDB> db.Check2.find()
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 250000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea5'),
+    ID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    COMPANY: 'Apple',
+    ROLE: 'ML Engineer',
+    SALARY: 150000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea6'),
+    ID: 'A0003',
+    NAME: 'Wasima Shahreen',
+    COMPANY: 'Netflix',
+    ROLE: 'Manager',
+    SALARY: 125000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea7'),
+    ID: 'A0004',
+    NAME: 'Manash Mon Goswami',
+    COMPANY: 'Amazon',
+    ROLE: 'Project Manager',
+    SALARY: 100000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.updateMany({"COMPANY" : {$in: ["Google" ,"Netflix"]}}, {$set: {"CITY" : "Zurich"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+Enterprise LearnBay_MongoDB> db.Check2.find()
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 250000,
+    CITY: 'Zurich',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea5'),
+    ID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    COMPANY: 'Apple',
+    ROLE: 'ML Engineer',
+    SALARY: 150000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea6'),
+    ID: 'A0003',
+    NAME: 'Wasima Shahreen',
+    COMPANY: 'Netflix',
+    ROLE: 'Manager',
+    SALARY: 125000,
+    CITY: 'Zurich',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea7'),
+    ID: 'A0004',
+    NAME: 'Manash Mon Goswami',
+    COMPANY: 'Amazon',
+    ROLE: 'Project Manager',
+    SALARY: 100000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.updateOne({$and: [{"CITY" : {$in: ["Zurich", "San Francisco"]}}, {"SALARY" : {$eq: 150000}}]}, {$set: {"SALARY" : 200000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise LearnBay_MongoDB> db.Check2.find()
+[
+  {
+    _id: ObjectId('68f2f941ad33cca64ecebea4'),
+    ID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    COMPANY: 'Google',
+    ROLE: 'Data Scientist',
+    SALARY: 250000,
+    CITY: 'Zurich',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea5'),
+    ID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    COMPANY: 'Apple',
+    ROLE: 'ML Engineer',
+    SALARY: 200000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea6'),
+    ID: 'A0003',
+    NAME: 'Wasima Shahreen',
+    COMPANY: 'Netflix',
+    ROLE: 'Manager',
+    SALARY: 125000,
+    CITY: 'Zurich',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea7'),
+    ID: 'A0004',
+    NAME: 'Manash Mon Goswami',
+    COMPANY: 'Amazon',
+    ROLE: 'Project Manager',
+    SALARY: 100000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.remove({"CITY": "Zurich"}, true)
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 1 }
+Enterprise LearnBay_MongoDB> db.Check2.find()
+[
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea5'),
+    ID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    COMPANY: 'Apple',
+    ROLE: 'ML Engineer',
+    SALARY: 200000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea6'),
+    ID: 'A0003',
+    NAME: 'Wasima Shahreen',
+    COMPANY: 'Netflix',
+    ROLE: 'Manager',
+    SALARY: 125000,
+    CITY: 'Zurich',
+    NATIONALITY: 'India'
+  },
+  {
+    _id: ObjectId('68f2fac8ad33cca64ecebea7'),
+    ID: 'A0004',
+    NAME: 'Manash Mon Goswami',
+    COMPANY: 'Amazon',
+    ROLE: 'Project Manager',
+    SALARY: 100000,
+    CITY: 'San Francisco',
+    NATIONALITY: 'India'
+  }
+]
+Enterprise LearnBay_MongoDB> db.Check2.remove({}, false)
+{ acknowledged: true, deletedCount: 3 }
+Enterprise LearnBay_MongoDB> db.Check2.find()
+
+Enterprise LearnBay_MongoDB> show collections
+Check2
+Enterprise LearnBay_MongoDB> db.Check2.drop()
+true
+Enterprise LearnBay_MongoDB> db.dropDatabase()
+{ ok: 1, dropped: 'LearnBay_MongoDB' }
+Enterprise LearnBay_MongoDB> db
+LearnBay_MongoDB
+Enterprise LearnBay_MongoDB> use demo
+switched to db demo
+Enterprise demo> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+demo      2.24 MiB
+local    72.00 KiB
+test      1.68 MiB
+Enterprise demo>
