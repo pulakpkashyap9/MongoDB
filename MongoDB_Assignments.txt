@@ -1,0 +1,2665 @@
+Microsoft Windows [Version 10.0.19045.6396]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\8.0\bin\mongosh-2.5.8-win32-x64\bin>mongosh
+Current Mongosh Log ID: 68e97c008e0ad9ba59cebea3
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8
+Using MongoDB:          8.0.15
+Using Mongosh:          2.5.8
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-10-11T03:03:55.440+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+Enterprise test> show dbs
+LearnBay_MongoDB  112.00 KiB
+admin              40.00 KiB
+config             60.00 KiB
+local              72.00 KiB
+Enterprise test> use LearnBay_MongoDB
+switched to db LearnBay_MongoDB
+Enterprise LearnBay_MongoDB> show collections
+demo
+test
+Enterprise LearnBay_MongoDB> db.test.find()
+[
+  {
+    _id: ObjectId('68e84417cc7c95df7fcebea4'),
+    Name: 'Bhaskar Bijoy Kashyap',
+    Company: 'Apple',
+    Country: 'United States of America',
+    Salary: 200000
+  }
+]
+Enterprise LearnBay_MongoDB> db.test.deleteOne()
+MongoshInvalidInputError: [COMMON-10001] Missing required argument at position 0 (Collection.deleteOne)
+Enterprise LearnBay_MongoDB> db.test.deleteOne({"Name" : "Bhaskar Bijoy Kashyap"})
+{ acknowledged: true, deletedCount: 1 }
+Enterprise LearnBay_MongoDB> use demo
+switched to db demo
+Enterprise demo> db.demo.find()
+
+Enterprise demo> db.demo.find()
+
+Enterprise demo> db.test.find()
+
+Enterprise demo> db.test.drop()
+true
+Enterprise demo> db.demo.drop()
+true
+Enterprise demo> show collections
+
+Enterprise demo> db.createCollection("Friends", (capped : true, max : 25))
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:39)
+
+> 1 | db.createCollection("Friends", (capped : true, max : 25))
+    |                                        ^
+  2 |
+
+Enterprise demo> db.createCollection("Friends", (capped : true, max : 25, size : 250000))
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:39)
+
+> 1 | db.createCollection("Friends", (capped : true, max : 25, size : 250000))
+    |                                        ^
+  2 |
+
+Enterprise demo> db.createCollection("Friends", {capped : true, max : 25, size : 250000})
+{ ok: 1 }
+Enterprise demo> show collections
+Friends
+Enterprise demo> db.Friends.insertOne({"FID" : "A0001", "Name" : "Pulak Pallab Kashyap", "City" : "GNOIDA", "DOJ" "2026-01-15", "Dept" : "IT", "Desi" : "Data Scientist", "Salary" : 250000})
+Uncaught:
+SyntaxError: Unexpected token (1:97)
+
+> 1 | db.Friends.insertOne({"FID" : "A0001", "Name" : "Pulak Pallab Kashyap", "City" : "GNOIDA", "DOJ" "2026-01-15", "Dept" : "IT", "Desi" : "Data Scientist", "Salary" : 250000})
+    |                                                                                                  ^
+  2 |
+
+Enterprise demo> db.Friends.insertOne({"FID" : "A0001", "Name" : "Pulak Pallab Kashyap", "City" : "GNOIDA", "DOJ" : "2026-01-15", "Dept" : "IT", "Desi" : "Data Scientist", "Salary" : 250000})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68e97fe28e0ad9ba59cebea4')
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "B0002", "Name" : "Wasima Shahreen", "City" : "Guwahati", "DOJ" : "2025-10-12", "Dept" : "HR", "Desi" : "Secretary", "Salary" : 200000}, {"FID" : "C0003", "Name" : "Hrishikesh Basumatary", "City" : "Guwahati", "DOJ" : "2026-07-20", "Dept" : "HR", "Desi" : "Management", "Salary" : 150000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e981c28e0ad9ba59cebea5'),
+    '1': ObjectId('68e981c28e0ad9ba59cebea6')
+  }
+}
+Enterprise demo> db.Friends.insertOne({"FID" : "C0004", "Name" : "Manash Goswami", "City" : "Bengaluru", "DOJ" : "2026-02-07", "Dept" : "IT", "Desi" : "Manager", "Salary" : 150000})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68e9829c8e0ad9ba59cebea7')
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "C0005", "Name" : "Bhaskar Bijoy Kashyap", "City" : "Arizona", "DOJ" : "2025-10-22", "Dept" : "IT", "Desi" : "Data Analyst", "Salary" : 200000}, {"FID" : "D0006", "Name" : "Jyotishman Buaruah", "City" : "Gurugram", "DOJ" : "2026-03-11", "Dept" : "IT", "Desi" : "Associate", "Salary" : 150000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e983c48e0ad9ba59cebea8'),
+    '1': ObjectId('68e983c48e0ad9ba59cebea9')
+  }
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "D0007", "Name" : "Angshuman Thakuria", "City" : "Guwahati", "DOJ" : "2025-12-22", "Dept" : "IT", "Desi" : "Associate", "Salary" : 150000}, {"FID" : "D0008", "Name" : "Rohan Ahmed Barua", "City" : "Gurugram", "DOJ" : "2026-04-04", "Dept" : "HR", "Desi" : "Associate", "Salary" : 150000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    '1': ObjectId('68e9846a8e0ad9ba59cebeab')
+  }
+}
+Enterprise demo> db.Friends.insertMany([{"FID" : "D0009", "Name" : "Juri Lahkar", "City" : "Dhubri", "DOJ" : "2026-02-01", "Dept" : "IT", "Desi" : "Associate", "Salary" : 100000}, {"FID" : "D0010", "Name" : "Kabyashree Bharadwaj", "City" : "Sivasagar", "DOJ" : "2026-05-28", "Dept" : "HR", "Desi" : "Associate", "Salary" : 100000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68e985328e0ad9ba59cebeac'),
+    '1': ObjectId('68e985328e0ad9ba59cebead')
+  }
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Management',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Buaruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.updateOne({"FID" : "B0002"}, {$set:{"Salary" : 350000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.updateOne({$and: [{"Dept" : "IT"}, {"City" : "Gurugram"}]}, {$set: {"Name" : "Jyotishman Baruah", "Dept" : "HR"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Management',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.updateOne({$or: [{"Desi" : "Management"}, {"Salary" : 150000}]}, {$set: {"Desi" : "Manager"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.find({"Dept" : "HR"})
+[
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.find({$and: [{"Dept" : "HR"}, {"Desi" : "Associate"}]})
+[
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Associate',
+    Salary: 100000
+  }
+]
+Enterprise demo> db.Friends.updateMany({"Desi" : "Associate"}, {$set: {"Desi" : "Senior Associate"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+Enterprise demo> db.Friends.find()
+[
+  {
+    _id: ObjectId('68e97fe28e0ad9ba59cebea4'),
+    FID: 'A0001',
+    Name: 'Pulak Pallab Kashyap',
+    City: 'GNOIDA',
+    DOJ: '2026-01-15',
+    Dept: 'IT',
+    Desi: 'Data Scientist',
+    Salary: 250000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea5'),
+    FID: 'B0002',
+    Name: 'Wasima Shahreen',
+    City: 'Guwahati',
+    DOJ: '2025-10-12',
+    Dept: 'HR',
+    Desi: 'Secretary',
+    Salary: 350000
+  },
+  {
+    _id: ObjectId('68e981c28e0ad9ba59cebea6'),
+    FID: 'C0003',
+    Name: 'Hrishikesh Basumatary',
+    City: 'Guwahati',
+    DOJ: '2026-07-20',
+    Dept: 'HR',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9829c8e0ad9ba59cebea7'),
+    FID: 'C0004',
+    Name: 'Manash Goswami',
+    City: 'Bengaluru',
+    DOJ: '2026-02-07',
+    Dept: 'IT',
+    Desi: 'Manager',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea8'),
+    FID: 'C0005',
+    Name: 'Bhaskar Bijoy Kashyap',
+    City: 'Arizona',
+    DOJ: '2025-10-22',
+    Dept: 'IT',
+    Desi: 'Data Analyst',
+    Salary: 200000
+  },
+  {
+    _id: ObjectId('68e983c48e0ad9ba59cebea9'),
+    FID: 'D0006',
+    Name: 'Jyotishman Baruah',
+    City: 'Gurugram',
+    DOJ: '2026-03-11',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeaa'),
+    FID: 'D0007',
+    Name: 'Angshuman Thakuria',
+    City: 'Guwahati',
+    DOJ: '2025-12-22',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e9846a8e0ad9ba59cebeab'),
+    FID: 'D0008',
+    Name: 'Rohan Ahmed Barua',
+    City: 'Gurugram',
+    DOJ: '2026-04-04',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 150000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebeac'),
+    FID: 'D0009',
+    Name: 'Juri Lahkar',
+    City: 'Dhubri',
+    DOJ: '2026-02-01',
+    Dept: 'IT',
+    Desi: 'Senior Associate',
+    Salary: 100000
+  },
+  {
+    _id: ObjectId('68e985328e0ad9ba59cebead'),
+    FID: 'D0010',
+    Name: 'Kabyashree Bharadwaj',
+    City: 'Sivasagar',
+    DOJ: '2026-05-28',
+    Dept: 'HR',
+    Desi: 'Senior Associate',
+    Salary: 100000
+  }
+]
+
+
+-- ASSIGNMENT 2:
+
+Microsoft Windows [Version 10.0.19045.6456]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\8.0\bin>mongoimport -d LearnBay_Mongo -c EMP --type csv --file EMP.csv --headerline
+2025-10-18T10:28:39.280+0530    connected to: mongodb://localhost/
+2025-10-18T10:28:39.572+0530    162 document(s) imported successfully. 0 document(s) failed to import.
+
+C:\Program Files\MongoDB\Server\8.0\bin>mongoimport -d LearnBay_Mongo -c EMP --type csv --file EMP.csv --headerline --drop
+2025-10-18T10:28:50.565+0530    connected to: mongodb://localhost/
+2025-10-18T10:28:50.567+0530    dropping: LearnBay_Mongo.EMP
+2025-10-18T10:28:51.123+0530    162 document(s) imported successfully. 0 document(s) failed to import.
+
+C:\Program Files\MongoDB\Server\8.0\bin>mongoimport -d LearnBay_Mongo -c SAL --type csv --file C:\Program Files\MongoDB\Server\8.0\bin\EMP_SAL.csv --headerline
+2025-10-18T10:30:07.684+0530    error parsing command line options: error parsing positional arguments: cannot use both --file and a positional argument to set the input file
+2025-10-18T10:30:07.685+0530    try 'mongoimport --help' for more information
+
+C:\Program Files\MongoDB\Server\8.0\bin>mongoimport -d LearnBay_Mongo -c SAL --type csv --file C:\Users\pulak\OneDrive\Desktop\EMP_SAL.csv --headerline --drop
+2025-10-18T10:31:44.910+0530    connected to: mongodb://localhost/
+2025-10-18T10:31:44.911+0530    dropping: LearnBay_Mongo.SAL
+2025-10-18T10:31:45.112+0530    93 document(s) imported successfully. 0 document(s) failed to import.
+
+
+Enterprise test> show dbs
+admin   40.00 KiB
+config  60.00 KiB
+demo     2.24 MiB
+local   72.00 KiB
+test     1.68 MiB
+Enterprise test> use test
+already on db test
+Enterprise test> show collections
+fs.chunks
+fs.files
+Enterprise test> use demo
+switched to db demo
+Enterprise demo> show collections
+emp
+Friends
+fs.chunks
+fs.files
+order
+sal
+Enterprise demo> use LearnBay_Mongo
+switched to db LearnBay_Mongo
+Enterprise LearnBay_Mongo> show collections
+EMP
+SAL
+Enterprise LearnBay_Mongo> db.SAL.find({$and: [{"DESI" : "MANAGER"}, {"SALARY" : {$gte: 100000}}]})
+[
+  {
+    _id: ObjectId('68f31f380a97b552734922cd'),
+    EID: 1007,
+    DEPT: 'HR',
+    DESI: 'MANAGER',
+    SALARY: 157322
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922ce'),
+    EID: 1010,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 134493
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922d1'),
+    EID: 1013,
+    DEPT: 'MIS',
+    DESI: 'MANAGER',
+    SALARY: 223155
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922d4'),
+    EID: 1008,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922df'),
+    EID: 1028,
+    DEPT: 'IT',
+    DESI: 'MANAGER',
+    SALARY: 155701
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f0'),
+    EID: 1067,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 251478
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f2'),
+    EID: 1040,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 352508
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f4'),
+    EID: 1074,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 273455
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922fb'),
+    EID: 1088,
+    DEPT: 'TEMP',
+    DESI: 'MANAGER',
+    SALARY: 126597
+  },
+  {
+    _id: ObjectId('68f31f380a97b5527349230e'),
+    EID: 1123,
+    DEPT: 'TEMP',
+    DESI: 'MANAGER',
+    SALARY: 110990
+  }
+]
+Enterprise LearnBay_Mongo> db.SAL.find({"DEPT" : {$in: ["IT", "ADMIN"]}})
+[
+  {
+    _id: ObjectId('68f31f380a97b552734922c8'),
+    EID: 1003,
+    DEPT: 'ADMIN',
+    DESI: 'SR MANAGER',
+    SALARY: 245673
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922da'),
+    EID: 1023,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 177095
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922db'),
+    EID: 1024,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 181550
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922dc'),
+    EID: 1025,
+    DEPT: 'IT',
+    DESI: 'ASSOCIATE',
+    SALARY: 168185
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922dd'),
+    EID: 1026,
+    DEPT: 'IT',
+    DESI: 'ASSOCIATE',
+    SALARY: 51500
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922de'),
+    EID: 1027,
+    DEPT: 'IT',
+    DESI: 'ASSOCIATE',
+    SALARY: 56900
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922df'),
+    EID: 1028,
+    DEPT: 'IT',
+    DESI: 'MANAGER',
+    SALARY: 155701
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922e0'),
+    EID: 1029,
+    DEPT: 'ADMIN',
+    DESI: 'ASSISTANT MANAGER',
+    SALARY: 69500
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922e2'),
+    EID: 1031,
+    DEPT: 'IT',
+    DESI: 'ASSOCIATE',
+    SALARY: 75000
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922e3'),
+    EID: 1034,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 57000
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922e7'),
+    EID: 1036,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 51500
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922e9'),
+    EID: 1038,
+    DEPT: 'ADMIN',
+    DESI: 'SR. ASSOCIATE',
+    SALARY: 56000
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f1'),
+    EID: 1072,
+    DEPT: 'IT',
+    DESI: 'ASSOCIATE',
+    SALARY: 185600
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f3'),
+    EID: 1073,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 60500
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f5'),
+    EID: 1075,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 110000
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f6'),
+    EID: 1077,
+    DEPT: 'ADMIN',
+    DESI: 'ASSOCIATE',
+    SALARY: 205000
+  }
+]
+Enterprise LearnBay_Mongo> db.SAL.remove({"DEPT" : "TEMP"}, 0)
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 44 }
+Enterprise LearnBay_Mongo> db.SAL.find({"DEPT" : "TEMP"})
+
+-- ASSIGNMENT 3:
+
+
+Enterprise test> show dbs
+LearnBay_Mongo  204.00 KiB
+admin            40.00 KiB
+config           72.00 KiB
+demo              2.24 MiB
+local            76.00 KiB
+test              1.68 MiB
+Enterprise test> use LearnBay_Mongo
+switched to db LearnBay_Mongo
+Enterprise LearnBay_Mongo> show collections
+EMP
+product
+SAL
+Enterprise LearnBay_Mongo> db.EMP.dropIndex()
+MongoshInvalidInputError: [COMMON-10001] Missing required argument at position 0 (Collection.dropIndex)
+Enterprise LearnBay_Mongo> db.EMP.dropIndex({"EID" : 1})
+{ nIndexesWas: 3, ok: 1 }
+Enterprise LearnBay_Mongo> db.EMP.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { City: -1 }, name: 'City_-1', expireAfterSeconds: 600 }
+]
+Enterprise LearnBay_Mongo> db.EMP.dropIndex({"City" : -1})
+{ nIndexesWas: 2, ok: 1 }
+Enterprise LearnBay_Mongo> db.EMP.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+Enterprise LearnBay_Mongo> db.EMP.createIndex({"EID" : 1}, {unique: true})
+EID_1
+Enterprise LearnBay_Mongo> db.EMP.createIndex({"CITY" : -1}, {expireAfterSeconds: 600})
+CITY_-1
+Enterprise LearnBay_Mongo> db.EMP.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { EID: 1 }, name: 'EID_1', unique: true },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1', expireAfterSeconds: 600 }
+]
+Enterprise LearnBay_Mongo> db.SAL.find({"SALARY" : {$nin : ["NULL"]}}).sort({"SALARY" : -1}).limit(5)
+[
+  {
+    _id: ObjectId('68f31f380a97b552734922cb'),
+    EID: 1001,
+    DEPT: 'OPS',
+    DESI: 'Director',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922ca'),
+    EID: 1005,
+    DEPT: 'HR',
+    DESI: 'Associate',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922d4'),
+    EID: 1008,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f2'),
+    EID: 1040,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 352508
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922d0'),
+    EID: 1012,
+    DEPT: 'HR',
+    DESI: 'SR. ASSOCIATE',
+    SALARY: 314887
+  }
+]
+Enterprise LearnBay_Mongo> db.SAL.aggregate([{$group: {_id : "$DEPT", "TOTAL_COUNT" : {$sum: 1}, "TOTAL_SALARY" : {$sum: "$SALARY"}, "AVERAGE_SALARY" : {$avg : "$SALARY"}, "MINIMUM_SALARY" : {$min: "$SALARY"}, "MAXIMUM_SALARY" : {$max: "$SALARY"}}}])
+[
+  {
+    _id: 'MIS',
+    TOTAL_COUNT: 7,
+    TOTAL_SALARY: 1027064,
+    AVERAGE_SALARY: 146723.42857142858,
+    MINIMUM_SALARY: 72640,
+    MAXIMUM_SALARY: 292129
+  },
+  {
+    _id: 'IT',
+    TOTAL_COUNT: 6,
+    TOTAL_SALARY: 692886,
+    AVERAGE_SALARY: 115481,
+    MINIMUM_SALARY: 51500,
+    MAXIMUM_SALARY: 185600
+  },
+  {
+    _id: 'mis',
+    TOTAL_COUNT: 1,
+    TOTAL_SALARY: 288767,
+    AVERAGE_SALARY: 288767,
+    MINIMUM_SALARY: 288767,
+    MAXIMUM_SALARY: 288767
+  },
+  {
+    _id: 'OPS',
+    TOTAL_COUNT: 16,
+    TOTAL_SALARY: 3232557,
+    AVERAGE_SALARY: 215503.8,
+    MINIMUM_SALARY: 65000,
+    MAXIMUM_SALARY: 'NULL'
+  },
+  {
+    _id: 'ADMIN',
+    TOTAL_COUNT: 10,
+    TOTAL_SALARY: 1213818,
+    AVERAGE_SALARY: 121381.8,
+    MINIMUM_SALARY: 51500,
+    MAXIMUM_SALARY: 245673
+  },
+  {
+    _id: 'HR',
+    TOTAL_COUNT: 9,
+    TOTAL_SALARY: 1709309,
+    AVERAGE_SALARY: 189923.22222222222,
+    MINIMUM_SALARY: 61500,
+    MAXIMUM_SALARY: 397026
+  }
+]
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.insertOne({"PID" : "P002", "PDESC" : "Macbook Pro M4", "TOTALSTK" : 3, "CURRENTSTK" : 1, "CUST_INFO" : [{"CID" : "C0003", "NAME" : "Bhaskar Bijoy Kashyap", "CITY" : "Arizona", "CONTACT" : "9706353469"}, {"CID" : "C0002", "NAME" : "Wasima Shahreen", "CITY" : "Guwahati", "CONTACT" : "9957715142"}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68f46ffecf982bc270cebea4')
+}
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f46ffecf982bc270cebea4'),
+    PID: 'P002',
+    PDESC: 'Macbook Pro M4',
+    TOTALSTK: 3,
+    CURRENTSTK: 1,
+    CUST_INFO: [
+      {
+        CID: 'C0003',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.findAndModify({query: {"PID" : "P002", "CURRENTSTK" : {$gt: 0}}, update: {$inc: {"CURRENTSTK" : -1}, $push: {"CID" : "C0001", "NAME" : "Pulak Pallab Kashyap", "CITY" : "GNOIDA", "CONTACT" : "887825397"}}})
+{
+  _id: ObjectId('68f46ffecf982bc270cebea4'),
+  PID: 'P002',
+  PDESC: 'Macbook Pro M4',
+  TOTALSTK: 3,
+  CURRENTSTK: 1,
+  CUST_INFO: [
+    {
+      CID: 'C0003',
+      NAME: 'Bhaskar Bijoy Kashyap',
+      CITY: 'Arizona',
+      CONTACT: '9706353469'
+    },
+    {
+      CID: 'C0002',
+      NAME: 'Wasima Shahreen',
+      CITY: 'Guwahati',
+      CONTACT: '9957715142'
+    }
+  ]
+}
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f46ffecf982bc270cebea4'),
+    PID: 'P002',
+    PDESC: 'Macbook Pro M4',
+    TOTALSTK: 3,
+    CURRENTSTK: 0,
+    CUST_INFO: [
+      {
+        CID: 'C0003',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ],
+    CID: [ 'C0001' ],
+    CITY: [ 'GNOIDA' ],
+    CONTACT: [ '887825397' ],
+    NAME: [ 'Pulak Pallab Kashyap' ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.deleteOne({"PID" : "P002"})
+{ acknowledged: true, deletedCount: 1 }
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.insertOne({"PID" : "P002", "PDESC" : "Macbook Pro M4", "TOTALSTK" : 3, "CURRENTSTK" : 1, "CUST_INFO" : [{"CID" : "C0003", "NAME" : "Bhaskar Bijoy Kashyap", "CITY" : "Arizona", "CONTACT" : "9706353469"}, {"CID" : "C0002", "NAME" : "Wasima Shahreen", "CITY" : "Guwahati", "CONTACT" : "9957715142"}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68f473edcf982bc270cebea5')
+}
+Enterprise LearnBay_Mongo> db.product.findAndModify({query: {"PID" : "P002", "CURRENTSTK" : {$gte : 1}}, update : {$inc: {"CURRENTSTK" : -1}, $push: {"CUST_INFO": {"CID" : "C0001", "NAME" : "Pulak Pallab Kashyap", "CITY" : "GNOIDA", "CONTACT" : "8876825397"}}}})
+{
+  _id: ObjectId('68f473edcf982bc270cebea5'),
+  PID: 'P002',
+  PDESC: 'Macbook Pro M4',
+  TOTALSTK: 3,
+  CURRENTSTK: 1,
+  CUST_INFO: [
+    {
+      CID: 'C0003',
+      NAME: 'Bhaskar Bijoy Kashyap',
+      CITY: 'Arizona',
+      CONTACT: '9706353469'
+    },
+    {
+      CID: 'C0002',
+      NAME: 'Wasima Shahreen',
+      CITY: 'Guwahati',
+      CONTACT: '9957715142'
+    }
+  ]
+}
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f473edcf982bc270cebea5'),
+    PID: 'P002',
+    PDESC: 'Macbook Pro M4',
+    TOTALSTK: 3,
+    CURRENTSTK: 0,
+    CUST_INFO: [
+      {
+        CID: 'C0003',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      },
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      }
+    ]
+  }
+]
+
+
+-- ASSIGNMENT 4:
+
+
+Enterprise test> show dbs
+LearnBay_Mongo  204.00 KiB
+admin            40.00 KiB
+config           72.00 KiB
+demo              2.24 MiB
+local            76.00 KiB
+test              1.68 MiB
+Enterprise test> use LearnBay_Mongo
+switched to db LearnBay_Mongo
+Enterprise LearnBay_Mongo> show collections
+EMP
+product
+SAL
+Enterprise LearnBay_Mongo> db.EMP.dropIndex()
+MongoshInvalidInputError: [COMMON-10001] Missing required argument at position 0 (Collection.dropIndex)
+Enterprise LearnBay_Mongo> db.EMP.dropIndex({"EID" : 1})
+{ nIndexesWas: 3, ok: 1 }
+Enterprise LearnBay_Mongo> db.EMP.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { City: -1 }, name: 'City_-1', expireAfterSeconds: 600 }
+]
+Enterprise LearnBay_Mongo> db.EMP.dropIndex({"City" : -1})
+{ nIndexesWas: 2, ok: 1 }
+Enterprise LearnBay_Mongo> db.EMP.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+Enterprise LearnBay_Mongo> db.EMP.createIndex({"EID" : 1}, {unique: true})
+EID_1
+Enterprise LearnBay_Mongo> db.EMP.createIndex({"CITY" : -1}, {expireAfterSeconds: 600})
+CITY_-1
+Enterprise LearnBay_Mongo> db.EMP.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { EID: 1 }, name: 'EID_1', unique: true },
+  { v: 2, key: { CITY: -1 }, name: 'CITY_-1', expireAfterSeconds: 600 }
+]
+Enterprise LearnBay_Mongo> db.SAL.find({"SALARY" : {$nin : ["NULL"]}}).sort({"SALARY" : -1}).limit(5)
+[
+  {
+    _id: ObjectId('68f31f380a97b552734922cb'),
+    EID: 1001,
+    DEPT: 'OPS',
+    DESI: 'Director',
+    SALARY: 480000
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922ca'),
+    EID: 1005,
+    DEPT: 'HR',
+    DESI: 'Associate',
+    SALARY: 397026
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922d4'),
+    EID: 1008,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 383781
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922f2'),
+    EID: 1040,
+    DEPT: 'OPS',
+    DESI: 'MANAGER',
+    SALARY: 352508
+  },
+  {
+    _id: ObjectId('68f31f380a97b552734922d0'),
+    EID: 1012,
+    DEPT: 'HR',
+    DESI: 'SR. ASSOCIATE',
+    SALARY: 314887
+  }
+]
+Enterprise LearnBay_Mongo> db.SAL.aggregate([{$group: {_id : "$DEPT", "TOTAL_COUNT" : {$sum: 1}, "TOTAL_SALARY" : {$sum: "$SALARY"}, "AVERAGE_SALARY" : {$avg : "$SALARY"}, "MINIMUM_SALARY" : {$min: "$SALARY"}, "MAXIMUM_SALARY" : {$max: "$SALARY"}}}])
+[
+  {
+    _id: 'MIS',
+    TOTAL_COUNT: 7,
+    TOTAL_SALARY: 1027064,
+    AVERAGE_SALARY: 146723.42857142858,
+    MINIMUM_SALARY: 72640,
+    MAXIMUM_SALARY: 292129
+  },
+  {
+    _id: 'IT',
+    TOTAL_COUNT: 6,
+    TOTAL_SALARY: 692886,
+    AVERAGE_SALARY: 115481,
+    MINIMUM_SALARY: 51500,
+    MAXIMUM_SALARY: 185600
+  },
+  {
+    _id: 'mis',
+    TOTAL_COUNT: 1,
+    TOTAL_SALARY: 288767,
+    AVERAGE_SALARY: 288767,
+    MINIMUM_SALARY: 288767,
+    MAXIMUM_SALARY: 288767
+  },
+  {
+    _id: 'OPS',
+    TOTAL_COUNT: 16,
+    TOTAL_SALARY: 3232557,
+    AVERAGE_SALARY: 215503.8,
+    MINIMUM_SALARY: 65000,
+    MAXIMUM_SALARY: 'NULL'
+  },
+  {
+    _id: 'ADMIN',
+    TOTAL_COUNT: 10,
+    TOTAL_SALARY: 1213818,
+    AVERAGE_SALARY: 121381.8,
+    MINIMUM_SALARY: 51500,
+    MAXIMUM_SALARY: 245673
+  },
+  {
+    _id: 'HR',
+    TOTAL_COUNT: 9,
+    TOTAL_SALARY: 1709309,
+    AVERAGE_SALARY: 189923.22222222222,
+    MINIMUM_SALARY: 61500,
+    MAXIMUM_SALARY: 397026
+  }
+]
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.insertOne({"PID" : "P002", "PDESC" : "Macbook Pro M4", "TOTALSTK" : 3, "CURRENTSTK" : 1, "CUST_INFO" : [{"CID" : "C0003", "NAME" : "Bhaskar Bijoy Kashyap", "CITY" : "Arizona", "CONTACT" : "9706353469"}, {"CID" : "C0002", "NAME" : "Wasima Shahreen", "CITY" : "Guwahati", "CONTACT" : "9957715142"}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68f46ffecf982bc270cebea4')
+}
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f46ffecf982bc270cebea4'),
+    PID: 'P002',
+    PDESC: 'Macbook Pro M4',
+    TOTALSTK: 3,
+    CURRENTSTK: 1,
+    CUST_INFO: [
+      {
+        CID: 'C0003',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.findAndModify({query: {"PID" : "P002", "CURRENTSTK" : {$gt: 0}}, update: {$inc: {"CURRENTSTK" : -1}, $push: {"CID" : "C0001", "NAME" : "Pulak Pallab Kashyap", "CITY" : "GNOIDA", "CONTACT" : "887825397"}}})
+{
+  _id: ObjectId('68f46ffecf982bc270cebea4'),
+  PID: 'P002',
+  PDESC: 'Macbook Pro M4',
+  TOTALSTK: 3,
+  CURRENTSTK: 1,
+  CUST_INFO: [
+    {
+      CID: 'C0003',
+      NAME: 'Bhaskar Bijoy Kashyap',
+      CITY: 'Arizona',
+      CONTACT: '9706353469'
+    },
+    {
+      CID: 'C0002',
+      NAME: 'Wasima Shahreen',
+      CITY: 'Guwahati',
+      CONTACT: '9957715142'
+    }
+  ]
+}
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f46ffecf982bc270cebea4'),
+    PID: 'P002',
+    PDESC: 'Macbook Pro M4',
+    TOTALSTK: 3,
+    CURRENTSTK: 0,
+    CUST_INFO: [
+      {
+        CID: 'C0003',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ],
+    CID: [ 'C0001' ],
+    CITY: [ 'GNOIDA' ],
+    CONTACT: [ '887825397' ],
+    NAME: [ 'Pulak Pallab Kashyap' ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.deleteOne({"PID" : "P002"})
+{ acknowledged: true, deletedCount: 1 }
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.product.insertOne({"PID" : "P002", "PDESC" : "Macbook Pro M4", "TOTALSTK" : 3, "CURRENTSTK" : 1, "CUST_INFO" : [{"CID" : "C0003", "NAME" : "Bhaskar Bijoy Kashyap", "CITY" : "Arizona", "CONTACT" : "9706353469"}, {"CID" : "C0002", "NAME" : "Wasima Shahreen", "CITY" : "Guwahati", "CONTACT" : "9957715142"}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('68f473edcf982bc270cebea5')
+}
+Enterprise LearnBay_Mongo> db.product.findAndModify({query: {"PID" : "P002", "CURRENTSTK" : {$gte : 1}}, update : {$inc: {"CURRENTSTK" : -1}, $push: {"CUST_INFO": {"CID" : "C0001", "NAME" : "Pulak Pallab Kashyap", "CITY" : "GNOIDA", "CONTACT" : "8876825397"}}}})
+{
+  _id: ObjectId('68f473edcf982bc270cebea5'),
+  PID: 'P002',
+  PDESC: 'Macbook Pro M4',
+  TOTALSTK: 3,
+  CURRENTSTK: 1,
+  CUST_INFO: [
+    {
+      CID: 'C0003',
+      NAME: 'Bhaskar Bijoy Kashyap',
+      CITY: 'Arizona',
+      CONTACT: '9706353469'
+    },
+    {
+      CID: 'C0002',
+      NAME: 'Wasima Shahreen',
+      CITY: 'Guwahati',
+      CONTACT: '9957715142'
+    }
+  ]
+}
+Enterprise LearnBay_Mongo> db.product.find()
+[
+  {
+    _id: ObjectId('68f328fa7639107702cebea4'),
+    PID: 'P001',
+    PDESC: 'ASUS Laptop R558UQ',
+    TOTALSTK: 5,
+    CURRENTSTK: 3,
+    CUST_INFO: [
+      {
+        CID: 'C0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397'
+      },
+      {
+        CID: 'C0002',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f473edcf982bc270cebea5'),
+
+Enterprise LearnBay_Mongo> db.author.insertMany([{"AID" : "A0001", "NAME" : "Pulak Pallab Kashyap", "CITY" : "GNOIDA", "CONTACT" : "8876825397", "EMAIL" : "pulakpallabk@gmail.com"}, {"AID" : "A0002", "NAME" : "Bhaskar Bijoy Kashyap", "CITY" : "Arizona", "CONTACT" : "9706353469", "EMAIL" : "bhaskar237@gmail.com"}, {"AID" : "A0003", "NAME" : "Wasima Shahreen", "CITY" : "Guwahati", "CONTACT" : "9957715142", "EMAIL" : "wasimasahin0786@gmail.com"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68f495dacf982bc270cebea6'),
+    '1': ObjectId('68f495dacf982bc270cebea7'),
+    '2': ObjectId('68f495dacf982bc270cebea8')
+  }
+}
+Enterprise LearnBay_Mongo> db.book.insertMany([{"BID" : "B0001", "NAME" : "Scaling The Great, Despite Being Late", "CATEGORY" : "Self Help Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0002", "NAME" : "Grit Through Chaos", "Self Help Books", "AUTHOR_ID" : "A0001"}, {"BID" : "B0003", "NAME" : "Healing The Restless Mind", "CATEGORY" : "Self Help Books", "AUTHOR_ID" : "A0001"}, {"BID" : "B0004", "NAME" : "The Steping Stones into Machine Learning", "CATEGORY" : "IT Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0005", "NAME" : "The Future With Artificial Intelligence", "CATEGORY" : "IT Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0006", "NAME" : "Introducing Terror Into Civilised Societies", "CATEGORY" : "Sociology Books", "AUTHOR_ID" : "A0003"}])
+Uncaught:
+SyntaxError: Unexpected token (1:210)
+
+> 1 | db.book.insertMany([{"BID" : "B0001", "NAME" : "Scaling The Great, Despite Being Late", "CATEGORY" : "Self Help Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0002", "NAME" : "Grit Through Chaos", "Self Help Books", "AUTHOR_ID" : "A0001"}, {"BID" : "B0003", "NAME" : "Healing The Restless Mind", "CATEGORY" : "Self Help Books", "AUTHOR_ID" : "A0001"}, {"BID" : "B0004", "NAME" : "The Steping Stones into Machine Learning", "CATEGORY" : "IT Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0005", "NAME" : "The Future With Artificial Intelligence", "CATEGORY" : "IT Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0006", "NAME" : "Introducing Terror Into Civilised Societies", "CATEGORY" : "Sociology Books", "AUTHOR_ID" : "A0003"}])
+    |                                                                                                                                                                                                                   ^
+  2 |
+
+Enterprise LearnBay_Mongo> db.book.insertMany([{"BID" : "B0001", "NAME" : "Scaling The Great, Despite Being Late", "CATEGORY" : "Self Help Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0002", "NAME" : "Grit Through Chaos", "CATEGORY" : "Self Help Books", "AUTHOR_ID" : "A0001"}, {"BID" : "B0003", "NAME" : "Healing The Restless Mind", "CATEGORY" : "Self Help Books", "AUTHOR_ID" : "A0001"}, {"BID" : "B0004", "NAME" : "The Steping Stones into Machine Learning", "CATEGORY" : "IT Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0005", "NAME" : "The Future With Artificial Intelligence", "CATEGORY" : "IT Books", "AUTHOR_ID" : "A0002"}, {"BID" : "B0006", "NAME" : "Introducing Terror Into Civilised Societies", "CATEGORY" : "Sociology Books", "AUTHOR_ID" : "A0003"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68f49b84cf982bc270cebea9'),
+    '1': ObjectId('68f49b84cf982bc270cebeaa'),
+    '2': ObjectId('68f49b84cf982bc270cebeab'),
+    '3': ObjectId('68f49b84cf982bc270cebeac'),
+    '4': ObjectId('68f49b84cf982bc270cebead'),
+    '5': ObjectId('68f49b84cf982bc270cebeae')
+  }
+}
+Enterprise LearnBay_Mongo> db.book.aggregate([{$lookup: {from : "author", localField: "AID", foreignField: "AUTHOR_ID", "as" : "AUTHOR_DETAILS"}}])
+[
+  {
+    _id: ObjectId('68f49b84cf982bc270cebea9'),
+    BID: 'B0001',
+    NAME: 'Scaling The Great, Despite Being Late',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeaa'),
+    BID: 'B0002',
+    NAME: 'Grit Through Chaos',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeab'),
+    BID: 'B0003',
+    NAME: 'Healing The Restless Mind',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeac'),
+    BID: 'B0004',
+    NAME: 'The Steping Stones into Machine Learning',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebead'),
+    BID: 'B0005',
+    NAME: 'The Future With Artificial Intelligence',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeae'),
+    BID: 'B0006',
+    NAME: 'Introducing Terror Into Civilised Societies',
+    CATEGORY: 'Sociology Books',
+    AUTHOR_ID: 'A0003',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.book.aggregate([{$lookup: {from : "author", localField: "AID", foreignField: "AUTHOR_ID", as : "AUTHOR_DETAILS"}}])
+[
+  {
+    _id: ObjectId('68f49b84cf982bc270cebea9'),
+    BID: 'B0001',
+    NAME: 'Scaling The Great, Despite Being Late',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeaa'),
+    BID: 'B0002',
+    NAME: 'Grit Through Chaos',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeab'),
+    BID: 'B0003',
+    NAME: 'Healing The Restless Mind',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeac'),
+    BID: 'B0004',
+    NAME: 'The Steping Stones into Machine Learning',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebead'),
+    BID: 'B0005',
+    NAME: 'The Future With Artificial Intelligence',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeae'),
+    BID: 'B0006',
+    NAME: 'Introducing Terror Into Civilised Societies',
+    CATEGORY: 'Sociology Books',
+    AUTHOR_ID: 'A0003',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      },
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.author.find()
+[
+  {
+    _id: ObjectId('68f495dacf982bc270cebea6'),
+    AID: 'A0001',
+    NAME: 'Pulak Pallab Kashyap',
+    CITY: 'GNOIDA',
+    CONTACT: '8876825397',
+    EMAIL: 'pulakpallabk@gmail.com'
+  },
+  {
+    _id: ObjectId('68f495dacf982bc270cebea7'),
+    AID: 'A0002',
+    NAME: 'Bhaskar Bijoy Kashyap',
+    CITY: 'Arizona',
+    CONTACT: '9706353469',
+    EMAIL: 'bhaskar237@gmail.com'
+  },
+  {
+    _id: ObjectId('68f495dacf982bc270cebea8'),
+    AID: 'A0003',
+    NAME: 'Wasima Shahreen',
+    CITY: 'Guwahati',
+    CONTACT: '9957715142',
+    EMAIL: 'wasimasahin0786@gmail.com'
+  }
+]
+Enterprise LearnBay_Mongo> db.book.find()
+[
+  {
+    _id: ObjectId('68f49b84cf982bc270cebea9'),
+    BID: 'B0001',
+    NAME: 'Scaling The Great, Despite Being Late',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0002'
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeaa'),
+    BID: 'B0002',
+    NAME: 'Grit Through Chaos',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001'
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeab'),
+    BID: 'B0003',
+    NAME: 'Healing The Restless Mind',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001'
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeac'),
+    BID: 'B0004',
+    NAME: 'The Steping Stones into Machine Learning',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002'
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebead'),
+    BID: 'B0005',
+    NAME: 'The Future With Artificial Intelligence',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002'
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeae'),
+    BID: 'B0006',
+    NAME: 'Introducing Terror Into Civilised Societies',
+    CATEGORY: 'Sociology Books',
+    AUTHOR_ID: 'A0003'
+  }
+]
+Enterprise LearnBay_Mongo> db.book.aggregate([{$lookup: {from : "author", localField: "AUTHOR_ID", foreignField: "AID", as : "AUTHOR_DETAILS"}}])
+[
+  {
+    _id: ObjectId('68f49b84cf982bc270cebea9'),
+    BID: 'B0001',
+    NAME: 'Scaling The Great, Despite Being Late',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeaa'),
+    BID: 'B0002',
+    NAME: 'Grit Through Chaos',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeab'),
+    BID: 'B0003',
+    NAME: 'Healing The Restless Mind',
+    CATEGORY: 'Self Help Books',
+    AUTHOR_ID: 'A0001',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea6'),
+        AID: 'A0001',
+        NAME: 'Pulak Pallab Kashyap',
+        CITY: 'GNOIDA',
+        CONTACT: '8876825397',
+        EMAIL: 'pulakpallabk@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeac'),
+    BID: 'B0004',
+    NAME: 'The Steping Stones into Machine Learning',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebead'),
+    BID: 'B0005',
+    NAME: 'The Future With Artificial Intelligence',
+    CATEGORY: 'IT Books',
+    AUTHOR_ID: 'A0002',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea7'),
+        AID: 'A0002',
+        NAME: 'Bhaskar Bijoy Kashyap',
+        CITY: 'Arizona',
+        CONTACT: '9706353469',
+        EMAIL: 'bhaskar237@gmail.com'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f49b84cf982bc270cebeae'),
+    BID: 'B0006',
+    NAME: 'Introducing Terror Into Civilised Societies',
+    CATEGORY: 'Sociology Books',
+    AUTHOR_ID: 'A0003',
+    AUTHOR_DETAILS: [
+      {
+        _id: ObjectId('68f495dacf982bc270cebea8'),
+        AID: 'A0003',
+        NAME: 'Wasima Shahreen',
+        CITY: 'Guwahati',
+        CONTACT: '9957715142',
+        EMAIL: 'wasimasahin0786@gmail.com'
+      }
+    ]
+  }
+]
+Enterprise LearnBay_Mongo> db.EMP.aggregate([{$lookup:{from : "SAL", localField : "EID", foreignField: "EID"}}])
+MongoServerError[FailedToParse]: must specify 'as' field for a $lookup
+Enterprise LearnBay_Mongo> db.EMP.aggregate([{$lookup:{from : "SAL", localField : "EID", foreignField: "EID", as : "EMPLOYEE_DETAILS"}}])
+[
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e59c'),
+    EID: 1001,
+    NAME: 'RAMESH GUPTA',
+    ADDR1: 'SECTOR 7',
+    ADDR2: 'Rohini',
+    CITY: 'DELHI',
+    PHONE: Long('9999002727'),
+    EMAIL: 'RK@YAHOO.CO.IN',
+    DOB: '9/1/1990',
+    DOJ: '3/15/2012',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922cb'),
+        EID: 1001,
+        DEPT: 'OPS',
+        DESI: 'Director',
+        SALARY: 480000
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e59d'),
+    EID: 1005,
+    NAME: 'Manoj Kumar',
+    ADDR1: 'B320',
+    ADDR2: 'Janakpuri',
+    CITY: 'DELHI',
+    PHONE: Long('9999912399'),
+    EMAIL: 'mKumar@gmail.com',
+    DOB: '7/1/1985',
+    DOJ: '11/7/2012',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922ca'),
+        EID: 1005,
+        DEPT: 'HR',
+        DESI: 'Associate',
+        SALARY: 397026
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e59e'),
+    EID: 1006,
+    NAME: 'Rohit Gupta',
+    ADDR1: 'A32/620 Main Road',
+    ADDR2: 'Sector 56',
+    CITY: 'GURGAON',
+    PHONE: Long('8899001123'),
+    EMAIL: 'rgupta@gmail.com',
+    DOB: '3/31/1992',
+    DOJ: '5/10/2012',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922cc'),
+        EID: 1006,
+        DEPT: 'OPS',
+        DESI: 'VP',
+        SALARY: 96500
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e59f'),
+    EID: 1002,
+    NAME: 'Sandeep Sharma',
+    ADDR1: 'SECTOR 2',
+    ADDR2: 'PALAM',
+    CITY: 'GURGAON',
+    PHONE: Long('9567890010'),
+    EMAIL: 'SAM1@YAHOO.COM',
+    DOB: '9/15/1995',
+    DOJ: '3/15/2012',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922c7'),
+        EID: 1002,
+        DEPT: 'OPS',
+        DESI: 'VP',
+        SALARY: 245000
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a0'),
+    EID: 1007,
+    NAME: 'Kapil Sharma',
+    ADDR1: 'Jay Maa Apartments Flat 32',
+    ADDR2: 'Sector 72',
+    CITY: 'PUNE',
+    PHONE: Long('9999001099'),
+    EMAIL: 'kSharma@gmail.com',
+    DOB: '9/28/1987',
+    DOJ: '5/10/2012',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922cd'),
+        EID: 1007,
+        DEPT: 'HR',
+        DESI: 'MANAGER',
+        SALARY: 157322
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a1'),
+    EID: 1003,
+    NAME: 'Rajesh Sharma',
+    ADDR1: 'Sector 11',
+    ADDR2: 'Dwarka',
+    CITY: 'DELHI',
+    PHONE: Long('9999001001'),
+    EMAIL: 'RSharma56@gmail.com',
+    DOB: '3/16/2001',
+    DOJ: '4/1/2012',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922c8'),
+        EID: 1003,
+        DEPT: 'ADMIN',
+        DESI: 'SR MANAGER',
+        SALARY: 245673
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a2'),
+    EID: 1004,
+    NAME: 'Yogeshwar Sharma',
+    ADDR1: 'Sector 11',
+    ADDR2: 'Dwarka',
+    CITY: 'DELHI',
+    PHONE: Long('8899001001'),
+    EMAIL: 'YSharma@gmail.com',
+    DOB: '9/25/1989',
+    DOJ: '5/10/2012',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922c9'),
+        EID: 1004,
+        DEPT: 'MIS',
+        DESI: 'Manager',
+        SALARY: 292129
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a3'),
+    EID: 1008,
+    NAME: 'Archna Sharma',
+    ADDR1: '5C Karanpur',
+    ADDR2: 'NP Road',
+    CITY: 'PUNE',
+    PHONE: Long('9899249700'),
+    EMAIL: 'ASharma@gmail.com',
+    DOB: '5/10/1985',
+    DOJ: '1/1/2013',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d4'),
+        EID: 1008,
+        DEPT: 'OPS',
+        DESI: 'MANAGER',
+        SALARY: 383781
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a4'),
+    EID: 1009,
+    NAME: 'Ranjeeta Goyal',
+    ADDR1: 'Flat No 6A',
+    ADDR2: 'Rajpur Road',
+    CITY: 'DEHRADUN',
+    PHONE: Long('9999002700'),
+    EMAIL: 'rgoyal@gmail.com',
+    DOB: '12/31/1989',
+    DOJ: '2/10/2013',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d5'),
+        EID: 1009,
+        DEPT: 'mis',
+        DESI: 'associate',
+        SALARY: 288767
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a5'),
+    EID: 1010,
+    NAME: 'Komal Singh',
+    ADDR1: 'Sector 64',
+    ADDR2: 'Old Gurgaon Road',
+    CITY: 'GURGAON',
+    PHONE: Long('7285912349'),
+    EMAIL: 'ksing@gmail.com',
+    DOB: '3/31/1990',
+    DOJ: '5/10/2013',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922ce'),
+        EID: 1010,
+        DEPT: 'MIS',
+        DESI: 'MANAGER',
+        SALARY: 134493
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a6'),
+    EID: 1011,
+    NAME: 'AMIT KAPOOR',
+    ADDR1: 'B2/45 DDA FLATS',
+    ADDR2: 'JANAKPURI',
+    CITY: 'DELHI',
+    PHONE: 989970701,
+    EMAIL: 'RK2@GMAIL.COM',
+    DOB: '1/1/1992',
+    DOJ: '1/4/2015',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922cf'),
+        EID: 1011,
+        DEPT: 'HR',
+        DESI: 'ASSOCIATE',
+        SALARY: 294149
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a7'),
+    EID: 1012,
+    NAME: 'MONIKA ARORA',
+    ADDR1: 'B1/45',
+    ADDR2: 'JANAKPURI',
+    CITY: 'DELHI',
+    PHONE: 999999234,
+    EMAIL: 'MA@GMAIL.COM',
+    DOB: '1/1/1982',
+    DOJ: '1/4/2015',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d0'),
+        EID: 1012,
+        DEPT: 'HR',
+        DESI: 'SR. ASSOCIATE',
+        SALARY: 314887
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a8'),
+    EID: 1013,
+    NAME: 'ROHAN KUMAR',
+    ADDR1: 'B305',
+    ADDR2: 'RAJOURI GARDEN',
+    CITY: 'DELHI',
+    PHONE: Long('9811098110'),
+    EMAIL: 'RK@GMAIL.COM',
+    DOB: '10/10/1998',
+    DOJ: '1/4/2016',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d1'),
+        EID: 1013,
+        DEPT: 'MIS',
+        DESI: 'MANAGER',
+        SALARY: 223155
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5a9'),
+    EID: 1014,
+    NAME: 'RAJAT KUMAR',
+    ADDR1: 'HNO-B205',
+    ADDR2: 'SECTOR 62',
+    CITY: 'NOIDA',
+    PHONE: Long('9811098115'),
+    EMAIL: 'RAJATK@GMAIL.COM',
+    DOB: '10/10/1998',
+    DOJ: '1/4/2016',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d2'),
+        EID: 1014,
+        DEPT: 'MIS',
+        DESI: 'ASSOCIATE',
+        SALARY: 75800
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5aa'),
+    EID: 1015,
+    NAME: 'ABHISHEK SHARMA',
+    ADDR1: 'C2-101',
+    ADDR2: 'JANAKPURI',
+    CITY: 'DELHI',
+    PHONE: Long('9898989800'),
+    EMAIL: 'AB@GMAIL.COM',
+    DOB: '10/11/1982',
+    DOJ: '3/5/2018',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d3'),
+        EID: 1015,
+        DEPT: 'OPS',
+        DESI: 'ASSISTANT MANAGER',
+        SALARY: 194335
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5ab'),
+    EID: 1019,
+    NAME: 'RAJAT KAPOOR',
+    ADDR1: 'B501/1 POCKET 1',
+    ADDR2: 'JANAKPURI',
+    CITY: 'DELHI',
+    PHONE: Long('9899256570'),
+    EMAIL: 'RJT@YAHOO.CO.IN',
+    DOB: '10/11/1983',
+    DOJ: '3/1/2018',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d6'),
+        EID: 1019,
+        DEPT: 'HR',
+        DESI: 'ASSOCIATE',
+        SALARY: 190460
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5ac'),
+    EID: 1020,
+    NAME: 'Rohan Kumar',
+    ADDR1: 'B-256',
+    ADDR2: 'RAJOURIGARDEN',
+    CITY: 'DELHI',
+    PHONE: Long('9898999987'),
+    EMAIL: 'RKUMAR@GMAIL.COM',
+    DOB: '10/10/1989',
+    DOJ: '1/2/2017',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d7'),
+        EID: 1020,
+        DEPT: 'HR',
+        DESI: 'ASSOCIATE',
+        SALARY: 134915
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5ad'),
+    EID: 1021,
+    NAME: 'Lalit Sharma',
+    ADDR1: 'C2-401',
+    ADDR2: 'Janak Puri',
+    CITY: 'DELHI',
+    PHONE: Long('9898999989'),
+    EMAIL: 'ls@GMAIL.COM',
+    DOB: '10/12/1989',
+    DOJ: '1/2/2017',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d8'),
+        EID: 1021,
+        DEPT: 'MIS',
+        DESI: 'ASSISTANT MANAGER',
+        SALARY: 137567
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5ae'),
+    EID: 1022,
+    NAME: 'Monika Bajaj',
+    ADDR1: 'DLF',
+    ADDR2: 'Phase 5',
+    CITY: 'GURGAON',
+    PHONE: Long('9898101089'),
+    EMAIL: 'MBAJAJ@GMAIL.COM',
+    DOB: '10/12/1992',
+    DOJ: '1/2/2016',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922d9'),
+        EID: 1022,
+        DEPT: 'MIS',
+        DESI: 'ASSISTANT MANAGER',
+        SALARY: 91280
+      }
+    ]
+  },
+  {
+    _id: ObjectId('68f31e8aae41fd3110a5e5af'),
+    EID: 1023,
+    NAME: 'Devender Kapoor',
+    ADDR1: 'E102/3 Pocket 1 Sector 3',
+    ADDR2: 'Dwarka',
+    CITY: 'DELHI',
+    PHONE: Long('9899346907'),
+    EMAIL: 'dk@yahoo.co.in',
+    DOB: '10/10/1982',
+    DOJ: '2/25/2018',
+    EMPLOYEE_DETAILS: [
+      {
+        _id: ObjectId('68f31f380a97b552734922da'),
+        EID: 1023,
+        DEPT: 'ADMIN',
+        DESI: 'ASSOCIATE',
+        SALARY: 177095
+      }
+    ]
+  }
+]
+Type "it" for more
+Enterprise LearnBay_Mongo>
+
