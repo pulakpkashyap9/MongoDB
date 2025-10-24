@@ -3,4 +3,5 @@ Here lies all the MongoDB files I have worked on with their respective codes as 
 1. MongoDB CRUD Opeartions and Basic Commands: CREATE (Database, Capped and Uncapped Collections), INSERT (insertOne, insert, insertMany), READ (find, findMany, show dbs, show collections, db), UPDATE (updateOne, updateMany), DELETE (deleteOne, deleteMany, remove, dropDatabase, collection.drop)
 2. MongoDB Operators and Importing: Logical Operators ($and, $or, $not, $nor), Comparison Operators ($in, $nin, $gt, $gte, $lt, $lte, $eq, $ne), Importing using mongoimport from Mongo Database Tools.
 3. MongoDB Indexing, Projection, Aggregation, Atomic Queries: Indexing (Single Field, Compound Field, TTL, Unique), Projection, Aggregation (Single Field, Multi Field and with Aggregation Operations), Atomic Queries (Embedded Documents and Referencing)
-4. MongoDB Assignments: Assignment 1 to 4 from LearnBay MongoDB Classes by Rajiv
+4. MongoDB Data Modelling (Normalized, Embedded), Referencing, Relationship, $lookup Aggregation, Data Types, GridFS, Sharding, Replication, Compass and the Operations on it.
+5. MongoDB Assignments: Assignment 1 to 4 from LearnBay MongoDB Classes by Rajiv
