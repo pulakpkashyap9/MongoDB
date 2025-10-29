@@ -5,3 +5,4 @@ Here lies all the MongoDB files I have worked on with their respective codes as 
 3. MongoDB Indexing, Projection, Aggregation, Atomic Queries: Indexing (Single Field, Compound Field, TTL, Unique), Projection, Aggregation (Single Field, Multi Field and with Aggregation Operations), Atomic Queries (Embedded Documents and Referencing)
 4. MongoDB Data Modelling (Normalized, Embedded), Referencing, Relationship, $lookup Aggregation, Data Types, GridFS, Sharding, Replication, Compass and the Operations on it.
 5. MongoDB Assignments: Assignment 1 to 4 from LearnBay MongoDB Classes by Rajiv
+6. Check Later
